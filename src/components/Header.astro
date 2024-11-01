@@ -2,31 +2,42 @@
 import { ArrowRightIcon } from "lucide-react";
 import DancingName from "./DancingName";
 ---
-<header class="flex flex-row items-center gap-20 pt-4">
 
+<header class="flex flex-row items-center gap-20 pt-4">
+  <nav class="flex flex-row items-center gap-4 font-mono text-sm">
     <a href="/" class="font-mono font-bold">
-        <DancingName client:load text="Lukas Gerhold">
+      <DancingName client:load text="Lukas Gerhold" />
     </a>
 
-    <nav class="flex flex-row items-center gap-4 font-mono text-sm">
-        <a href="/work" class="font-bold hover:text-lime-600 transition-colors">Work</a>
+    <span class="text-gray-300 select-none">|</span>
 
-        <span class="text-gray-300">|</span>
+    <a href="/work" class="font-bold hover:text-primary transition-colors">
+      Work
+    </a>
 
-        <a href="/explorations" class="font-bold hover:text-lime-600 transition-colors">Explorations</a>
-    </nav>
-
-    <div class="flex-1"></div>
+    <span class="text-gray-300 select-none">|</span>
 
     <a
-      href="mailto:lukger1999@gmail.com?subject=Hey,%20what's%20up?"
-      class="group font-mono font-bold text-sm text-lime-700 uppercase inline-flex items-center"
+      href="/explorations"
+      class="font-bold hover:text-primary transition-colors">Explorations</a
     >
-      <span class="transition-transform duration-300 ease-out group-hover:-translate-x-1">
-        Get in touch
-      </span>
-      <span class="transition-all duration-300 ease-out opacity-0 translate-x-1 group-hover:opacity-100 group-hover:translate-x-0">
-        <ArrowRightIcon size={18} />
-      </span>
-    </a>
+  </nav>
+
+  <div class="flex-1"></div>
+
+  <a
+    href="mailto:lukger1999@gmail.com?subject=Hey,%20what's%20up?"
+    class="group font-mono font-bold text-sm text-primary uppercase inline-flex items-center"
+  >
+    <span
+      class="transition-transform duration-300 ease-out group-hover:-translate-x-1"
+    >
+      Get in touch
+    </span>
+    <span
+      class="transition-all duration-300 ease-out opacity-0 translate-x-1 group-hover:opacity-100 group-hover:translate-x-0"
+    >
+      <ArrowRightIcon size={18} />
+    </span>
+  </a>
 </header>
