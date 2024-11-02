@@ -1,12 +1,19 @@
 ---
+import { getCollection } from "astro:content";
 import Header from "../../components/Header.astro";
 import Layout from "../../layouts/Layout.astro";
+
+const explorations = await getCollection("explorations");
 ---
 
 <Layout title="lg">
   <Header />
 
-  <span>Exploration</span>
-
-  <a href="/explorations/cube">Cube</a>
+  <div class="flex flex-col gap-4 pt-12">
+    {
+      explorations.map((e) => (
+        <a href={"/explorations/" + e.slug}>{e.data.title}</a>
+      ))
+    }
+  </div>
 </Layout>

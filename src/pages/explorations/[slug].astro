@@ -1,0 +1,24 @@
+---
+import ExplorationsLayout from "@/layouts/ExplorationsLayout.astro";
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+
+interface Props {
+  exploration: CollectionEntry<"explorations">;
+}
+
+export async function getStaticPaths() {
+  const explorations = await getCollection("explorations");
+  return explorations.map((exploration) => ({
+    params: { slug: exploration.slug },
+    props: { exploration },
+  }));
+}
+
+const { exploration } = Astro.props;
+const { Content } = await exploration.render();
+---
+
+<ExplorationsLayout title={exploration.data.title}>
+  <Content />
+</ExplorationsLayout>
