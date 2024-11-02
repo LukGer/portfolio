@@ -1,0 +1,15 @@
+---
+import Header from "../components/Header.astro";
+import Layout from "./Layout.astro";
+
+const { title } = Astro.props;
+---
+
+<Layout title={title}>
+  <Header />
+  <div class="my-12 w-full flex flex-col items-center">
+    <div class="prose">
+      <slot />
+    </div>
+  </div>
+</Layout>

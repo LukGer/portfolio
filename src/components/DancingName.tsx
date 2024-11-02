@@ -5,7 +5,6 @@ interface DancingNameProps {
 }
 
 const DancingName = ({ text }: DancingNameProps) => {
-	// Animation variants
 	const letterVariants = {
 		initial: { y: 0 },
 		hover: (i: number) => ({
