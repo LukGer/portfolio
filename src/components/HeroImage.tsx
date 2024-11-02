@@ -11,7 +11,7 @@ const HeroImage = () => {
 	const mouseY = useMotionValue(0);
 	const isHovered = useMotionValue(0);
 
-	const radius = useTransform(isHovered, [0, 1], [0, 100]);
+	const radius = useTransform(isHovered, [0, 1], [0, 150]);
 
 	const springRadius = useSpring(radius, {
 		stiffness: 300,
