@@ -19,6 +19,6 @@ const { exploration } = Astro.props;
 const { Content } = await exploration.render();
 ---
 
-<ExplorationsLayout title={exploration.data.title}>
+<ExplorationsLayout exploration={exploration}>
   <Content />
 </ExplorationsLayout>

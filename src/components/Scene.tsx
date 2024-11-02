@@ -1,10 +1,8 @@
-import { Environment, Grid } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useReducedMotion } from "framer-motion";
 import { PauseIcon, PlayIcon } from "lucide-react";
-import { useRef, useState } from "react";
+import { type ReactNode, useRef, useState } from "react";
 import * as THREE from "three";
-import Cube from "./Cube";
 
 const CameraRig = ({ rotate }: { rotate: boolean }) => {
 	const clock = useRef(new THREE.Clock());
@@ -46,7 +44,7 @@ const RotationControl = ({
 	);
 };
 
-const Scene = () => {
+const Scene = ({ children }: { children: ReactNode[] }) => {
 	const prefersReducedMotion = useReducedMotion();
 
 	const [rotate, setRotate] = useState(!prefersReducedMotion);
@@ -67,9 +65,7 @@ const Scene = () => {
 					intensity={1.5}
 					castShadow
 				/>
-				<Cube />
-				<Grid position={[0, -0.01, 0]} args={[20, 20]} fadeDistance={10} />
-				<Environment preset="sunset" />
+				{...children}
 				<CameraRig rotate={rotate} />
 			</Canvas>
 			<RotationControl rotate={rotate} onToggle={() => setRotate(!rotate)} />
