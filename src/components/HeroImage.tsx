@@ -14,8 +14,7 @@ const HeroImage = () => {
 	const radius = useTransform(isHovered, [0, 1], [0, 150]);
 
 	const springRadius = useSpring(radius, {
-		stiffness: 300,
-		damping: 30,
+		duration: 500,
 	});
 
 	useEffect(() => {
