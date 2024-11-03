@@ -11,7 +11,7 @@ function DitheringEffectComposer({ type }: { type: DitheringType }) {
 			<DitheringEffect
 				color1={new THREE.Color(0x65a30d)}
 				color2={new THREE.Color(0xffffff)}
-				type="bayer"
+				type={type}
 			/>
 		</EffectComposer>
 	);
