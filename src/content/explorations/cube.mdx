@@ -8,10 +8,10 @@ date: "2024-11-01"
 
 First we start with a simple cube. This cube is rendered using `react-three-fiber` just so we have something to look at.
 
-import Scene from "@/components/explorations/dithering/Scene.tsx";
+import CubeScene from "@/components/explorations/dithering/CubeScene.tsx";
 
 <div className="w-full h-96 rounded-lg shadow-lg bg-slate-100 overflow-hidden">
-  <Scene client:load />
+  <CubeScene client:load />
 </div>
 
 ## Dithering
@@ -53,14 +53,14 @@ import DitheredScene from "@/components/explorations/dithering/DitheredScene.tsx
   <DitheredScene client:load type="bayer" />
 </div>
 
-We can also apply a different dithering effect like Floyd-Steinberg-Dithering:
-
-<div className="w-full h-96 rounded-lg shadow-lg bg-slate-100 overflow-hidden">
-  <DitheredScene client:load type="floydSteinberg" />
-</div>
-
-... or Atkinson-Dithering:
+We can switch out the dithering algorithm to get a different look. For example with Atkinson-Dithering:
 
 <div className="w-full h-96 rounded-lg shadow-lg bg-slate-100 overflow-hidden">
   <DitheredScene client:load type="atkinson" />
+</div>
+
+... or Riemersma-Dithering:
+
+<div className="w-full h-96 rounded-lg shadow-lg bg-slate-100 overflow-hidden">
+  <DitheredScene client:load type="riemersma" />
 </div>

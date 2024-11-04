@@ -5,3 +5,11 @@ date: "2024-11-01"
 ---
 
 # Github Commit Visualizer
+
+This is a little visualization I built to show the commit history of a given Github user. It uses the Github API to fetch the commit history of a user and then renders it in a 3D scene using Three.js.
+
+import Scene from "@/components/explorations/github/Scene";
+
+<div className="w-full h-96 rounded-lg shadow-lg bg-slate-100 overflow-hidden">
+  <Scene client:load />
+</div>

@@ -1,9 +1,9 @@
-import Scene from "@/components/Scene";
 import { Environment, Grid } from "@react-three/drei";
 import { EffectComposer } from "@react-three/postprocessing";
 import * as THREE from "three";
 import Cube from "./Cube";
 import { DitheringEffect, type DitheringType } from "./DitheringEffect";
+import Scene from "./Scene";
 
 function DitheringEffectComposer({ type }: { type: DitheringType }) {
 	return (
