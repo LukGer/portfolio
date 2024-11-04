@@ -19,7 +19,7 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <main class="flex flex-col min-h-screen">
+    <main class="flex flex-col min-h-screen px-12 md:px-[15%]">
       <slot />
     </main>
     <Footer />
@@ -43,10 +43,6 @@ const { title } = Astro.props;
     width: 100dvw;
     min-height: 100dvh;
     @apply bg-background;
-  }
-
-  main {
-    padding-inline: 15%;
   }
 
   @keyframes fadeInUp {
