@@ -1,0 +1,36 @@
+---
+import DateField from "./DateField";
+
+interface Props {
+  exploration: {
+    slug: string;
+    title: string;
+    description: string;
+    date: string;
+    tags: string[];
+  };
+}
+
+const { exploration } = Astro.props;
+---
+
+<a href={"/explorations/" + exploration.slug} class="flex flex-col gap-4">
+  <div class="flex flex-row items-center">
+    <h2 class="text-2xl font-bold">{exploration.title}</h2>
+
+    <div class="flex-1"></div>
+
+    <DateField client:load date={new Date(exploration.date)} />
+  </div>
+
+  <p>{exploration.description}</p>
+  <div class="flex gap-2">
+    {
+      exploration.tags.map((tag) => (
+        <span class="text-sm bg-primary bg-opacity-25 px-2 py-1 rounded uppercase">
+          {tag}
+        </span>
+      ))
+    }
+  </div>
+</a>

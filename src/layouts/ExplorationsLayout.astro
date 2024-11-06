@@ -1,6 +1,5 @@
 ---
 import DateField from "@/components/DateField";
-import { CalendarIcon } from "lucide-react";
 import Header from "../components/Header.astro";
 import Layout from "./Layout.astro";
 
@@ -12,11 +11,7 @@ const date = new Date(exploration.data.date);
 <Layout title={exploration.data.title}>
   <Header />
   <div class="my-12 w-full flex flex-col items-center">
-    <div class="self-end flex flex-row items-center gap-2">
-      <CalendarIcon size={14} />
-
-      <DateField client:load date={date} />
-    </div>
+    <DateField client:load date={date} />
     <div class="prose">
       <slot />
     </div>

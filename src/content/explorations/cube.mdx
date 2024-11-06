@@ -1,5 +1,7 @@
 ---
 title: "Three.js Cube with dithering"
+description: "Exploring different dithering algorithms in Three.js"
+tags: ["three.js"]
 slug: "dithering"
 date: "2024-11-01"
 ---
@@ -10,7 +12,7 @@ First we start with a simple cube. This cube is rendered using `react-three-fibe
 
 import CubeScene from "@/components/explorations/dithering/CubeScene.tsx";
 
-<div className="w-full max-w-lg h-96 rounded-lg shadow-lg bg-slate-100 overflow-hidden">
+<div className="w-full h-96 rounded-lg shadow-lg bg-slate-100 overflow-hidden">
   <CubeScene client:load />
 </div>
 
@@ -49,18 +51,18 @@ This is using a Bayer matrix and once applied to the scene, we get the following
 
 import DitheredScene from "@/components/explorations/dithering/DitheredScene.tsx";
 
-<div className="w-full max-w-lg h-96 rounded-lg shadow-lg bg-slate-100 overflow-hidden">
+<div className="self-center w-full h-96 rounded-lg shadow-lg bg-slate-100 overflow-hidden">
   <DitheredScene client:load type="bayer" />
 </div>
 
 We can switch out the dithering algorithm to get a different look. For example with Atkinson-Dithering:
 
-<div className="w-full max-w-lg h-96 rounded-lg shadow-lg bg-slate-100 overflow-hidden">
+<div className="w-full h-96 rounded-lg shadow-lg bg-slate-100 overflow-hidden">
   <DitheredScene client:load type="atkinson" />
 </div>
 
 ... or Riemersma-Dithering:
 
-<div className="w-full max-w-lg h-96 rounded-lg shadow-lg bg-slate-100 overflow-hidden">
+<div className="self-center w-full h-96 rounded-lg shadow-lg bg-slate-100 overflow-hidden">
   <DitheredScene client:load type="riemersma" />
 </div>
