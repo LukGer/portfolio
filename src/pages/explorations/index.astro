@@ -23,9 +23,7 @@ explorations.sort(
         <>
           <ExplorationItem exploration={{ slug: e.slug, ...e.data }} />
 
-          {i < explorations.length - 1 && (
-            <hr class="border-gray-200 dark:border-gray-800" />
-          )}
+          {i < explorations.length - 1 && <hr class="border-gray-200" />}
         </>
       ))
     }
