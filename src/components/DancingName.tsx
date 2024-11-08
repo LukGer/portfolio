@@ -19,13 +19,17 @@ const DancingName = ({ text }: DancingNameProps) => {
 	};
 
 	return (
-		<motion.div initial="initial" whileHover="hover" className="inline-block">
+		<motion.div
+			initial="initial"
+			whileHover="hover"
+			className="inline-block group"
+		>
 			{text.split("").map((letter, index) => (
 				<motion.span
 					key={index}
 					variants={letterVariants}
 					custom={index}
-					className="inline-block text-sm"
+					className="inline-block text-sm group-hover:text-primary transition-colors"
 				>
 					{letter === " " ? "\u00A0" : letter}
 				</motion.span>
