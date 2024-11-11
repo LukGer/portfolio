@@ -7,7 +7,7 @@ import DancingName from "./DancingName";
   class="flex flex-row items-center gap-x-8 gap-y-4 flex-wrap md:gap-20 pt-4"
 >
   <nav class="flex flex-row items-center gap-4 font-mono text-sm">
-    <a href="/" class="font-mono font-bold">
+    <a href="/" class="font-mono">
       <div class="hidden md:block">
         <DancingName client:load text="Lukas Gerhold" />
       </div>
@@ -16,15 +16,12 @@ import DancingName from "./DancingName";
 
     <span class="text-gray-300 select-none">/</span>
 
-    <a href="/work" class="font-bold hover:text-primary transition-colors">
-      Work
-    </a>
+    <a href="/work" class="hover:text-primary transition-colors"> Work </a>
 
     <span class="text-gray-300 select-none">/</span>
 
-    <a
-      href="/explorations"
-      class="font-bold hover:text-primary transition-colors">Explorations</a
+    <a href="/explorations" class="hover:text-primary transition-colors"
+      >Explorations</a
     >
   </nav>
 
@@ -32,7 +29,7 @@ import DancingName from "./DancingName";
 
   <a
     href="mailto:lukger1999@gmail.com?subject=Hey,%20what's%20up?"
-    class="group font-mono font-bold text-sm text-primary uppercase inline-flex items-center"
+    class="group font-mono text-sm text-primary uppercase inline-flex items-center"
   >
     <span
       class="transition-transform duration-300 ease-out group-hover:-translate-x-1"
