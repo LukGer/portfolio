@@ -1,8 +1,8 @@
 ---
-import HitMeUp from "@/components/HitMeUp.tsx";
 import {
   BriefcaseBusinessIcon,
   GraduationCapIcon,
+  LightbulbIcon,
   SquareArrowOutUpRightIcon,
 } from "lucide-react";
 import Header from "../components/Header.astro";
@@ -39,7 +39,11 @@ const jobs = [
   <Header />
 
   <section class="flex-1 grid grid-cols-[auto,_1fr] py-4 md:py-12">
-    <svg class="w-8 h-full" viewBox="0 0 32 800">
+    <svg
+      class="w-8 h-full"
+      viewBox="0 0 32 850"
+      preserveAspectRatio="xMidYMin slice"
+    >
       <defs>
         <linearGradient id="fadeOut" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" stop-color="#d1d5db" stop-opacity="1"></stop>
@@ -54,7 +58,7 @@ const jobs = [
         fill="transparent"
         stroke="#d1d5db"
         stroke-width="2"></circle>
-      <path d="M15 22v700h2v-700z" fill="url(#fadeOut)"></path>
+      <path d="M15 22L15 850 17 850 17 22z" fill="url(#fadeOut)"></path>
     </svg>
     <div class="py-12 flex flex-col gap-24 -ms-4">
       {
@@ -115,7 +119,29 @@ const jobs = [
             class="draw-path"
             style={`animation-delay: ${jobs.length * 0.2 + 1}s`}></path>
         </svg>
-        <HitMeUp jobsLength={jobs.length} />
+        <div class="flex-1">
+          <div
+            class="fade-in-up flex flex-row items-center"
+            style={{ animationDelay: `${jobs.length * 0.2 + 0.5}s;` }}
+          >
+            <div
+              class="rounded-full p-4 border-gray-300 border-2 me-8 glow-animate"
+              style={{ animationDelay: `${jobs.length * 0.2 + 1.5}s` }}
+            >
+              <LightbulbIcon size={20} />
+            </div>
+
+            <div class="flex flex-col gap-1 text-gray-600">
+              <span>Do you have an idea and want to expand that list? </span>
+              <a
+                href="mailto:lukger1999@gmail.com?subject=Hey,%20what's%20up?"
+                class="text-primary font-bold"
+              >
+                Hit me up ^^
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -135,5 +161,22 @@ const jobs = [
     stroke-dasharray: 56;
     stroke-dashoffset: 56;
     animation: drawPath 1s ease-out forwards;
+  }
+
+  @keyframes glowEffect {
+    0% {
+      border-color: #d1d5db;
+      box-shadow: none;
+      color: inherit;
+    }
+    100% {
+      border-color: #facc15;
+      box-shadow: 0 0 15px rgba(250, 204, 21, 0.4);
+      color: #facc15;
+    }
+  }
+
+  .glow-animate {
+    animation: glowEffect 0.2s ease-out forwards;
   }
 </style>
