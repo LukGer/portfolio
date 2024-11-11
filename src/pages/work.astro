@@ -1,8 +1,8 @@
 ---
+import HitMeUp from "@/components/HitMeUp.tsx";
 import {
   BriefcaseBusinessIcon,
   GraduationCapIcon,
-  MessagesSquareIcon,
   SquareArrowOutUpRightIcon,
 } from "lucide-react";
 import Header from "../components/Header.astro";
@@ -43,7 +43,7 @@ const jobs = [
       <defs>
         <linearGradient id="fadeOut" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" stop-color="#d1d5db" stop-opacity="1"></stop>
-          <stop offset="75%" stop-color="#d1d5db" stop-opacity="1"></stop>
+          <stop offset="80%" stop-color="#d1d5db" stop-opacity="1"></stop>
           <stop offset="100%" stop-color="#d1d5db" stop-opacity="0"></stop>
         </linearGradient>
       </defs>
@@ -105,19 +105,17 @@ const jobs = [
         ))
       }
 
-      <div
-        class="ms-12 flex flex-row items-center gap-2 text-gray-500 fade-in-up"
-        style={`animation-delay: ${0.5 + jobs.length * 0.2}s`}
-      >
-        <MessagesSquareIcon size={20} />
-
-        <span
-          >Want to expand that list? <a
-            href="mailto:lukger1999@gmail.com?subject=Hey,%20what's%20up?"
-            class="hover:text-primary transition-colors"
-            >Hit me up ^^
-          </a>
-        </span>
+      <div class="flex flex-row items-center">
+        <svg class="h-1/2 w-7" viewBox="0 0 28 28">
+          <path
+            d="M0 0 A 14 14 0 0 0 14 14 L 28 14"
+            stroke="#d1d5db"
+            stroke-width="2"
+            fill="none"
+            class="draw-path"
+            style={`animation-delay: ${jobs.length * 0.2 + 1}s`}></path>
+        </svg>
+        <HitMeUp jobsLength={jobs.length} />
       </div>
     </div>
   </section>
