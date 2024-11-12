@@ -7,7 +7,7 @@ const CubeScene = () => {
 		<Scene>
 			<Cube />
 			<Grid position={[0, -0.01, 0]} args={[20, 20]} fadeDistance={10} />
-			<Environment preset="sunset" />
+			<Environment preset="city" />
 		</Scene>
 	);
 };

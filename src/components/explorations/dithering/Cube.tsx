@@ -10,7 +10,7 @@ const Cube = () => {
 			castShadow
 			receiveShadow
 		>
-			<meshStandardMaterial color="#ffffff" metalness={1} roughness={0.1} />
+			<meshStandardMaterial color="#ffffff" metalness={1} roughness={0.01} />
 		</RoundedBox>
 	);
 };

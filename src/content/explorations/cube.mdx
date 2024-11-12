@@ -8,7 +8,7 @@ date: "2024-11-01"
 
 # {frontmatter.title}
 
-First we start with a simple cube. This cube is rendered using `react-three-fiber` just so we have something to look at.
+First we start with a simple but _suuuper_ shiny cube just so we have something to look at. This cube is rendered using `react-three-fiber`.
 
 import CubeScene from "@/components/explorations/dithering/CubeScene.tsx";
 
@@ -20,34 +20,7 @@ import CubeScene from "@/components/explorations/dithering/CubeScene.tsx";
 
 By creating a `DitheringEffect` using `postprocessing` we can apply a unique effect to the scene.
 
-The fragment shader for the dithering effect is as follows:
-
-```glsl
-  uniform vec3 color1;
-  uniform vec3 color2;
-  uniform vec2 uResolution;
-
-  float dither(vec2 uv) {
-    float thresholdMatrix[16] = float[16](
-      0.0, 0.5, 0.125, 0.625,
-      0.75, 0.25, 0.875, 0.375,
-      0.1875, 0.6875, 0.0625, 0.5625,
-      0.9375, 0.4375, 0.8125, 0.3125
-    );
-    vec2 pixelPos = floor(uv * 4.0);
-    int index = int(mod(pixelPos.x, 4.0) + 4.0 * mod(pixelPos.y, 4.0));
-    return thresholdMatrix[index];
-  }
-
-  void mainImage(const in vec4 inputColor, const in vec2 uv, out vec4 outputColor) {
-    float grayscale = dot(inputColor.rgb, vec3(0.299, 0.587, 0.114));
-    float threshold = dither(uv * uResolution);
-    vec3 color = grayscale < threshold ? color1 : color2;
-    outputColor = vec4(color, 1.0);
-  }
-```
-
-This is using a Bayer matrix and once applied to the scene, we get the following effect:
+The following scene is applying a dithering shader using a Bayer matrix and with it we get the following effect:
 
 import DitheredScene from "@/components/explorations/dithering/DitheredScene.tsx";
 
@@ -55,14 +28,16 @@ import DitheredScene from "@/components/explorations/dithering/DitheredScene.tsx
   <DitheredScene client:load type="bayer" />
 </div>
 
-We can switch out the dithering algorithm to get a different look. For example with Atkinson-Dithering:
+We can switch out the dithering algorithm to get a different look. For example with Atkinson-Dithering we get the distinct diagonal lines:
 
 <div className="w-full h-96 rounded-lg shadow-lg bg-slate-100 overflow-hidden">
   <DitheredScene client:load type="atkinson" />
 </div>
 
-... or Riemersma-Dithering:
+... or Riemersma-Dithering which gives a more low-res effect:
 
 <div className="self-center w-full h-96 rounded-lg shadow-lg bg-slate-100 overflow-hidden">
   <DitheredScene client:load type="riemersma" />
 </div>
+
+The shader codes for the different dithering algorithms can be found in the <a href="https://github.com/LukGer/portfolio/blob/main/src/components/explorations/dithering/DitheringEffect.tsx" target="_blank">DitheringEffect.tsx</a> file.
