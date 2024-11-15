@@ -1,7 +1,8 @@
 import { useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const HeroImage = () => {
+	const [imagesLoaded, setImagesLoaded] = useState(false);
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const originalImageRef = useRef<HTMLImageElement>();
 	const ditheredImageRef = useRef<HTMLImageElement>();
@@ -26,14 +27,24 @@ const HeroImage = () => {
 
 		const originalImage = new Image();
 		const ditheredImage = new Image();
+		let loadedImages = 0;
+
+		const checkAllLoaded = () => {
+			loadedImages++;
+			if (loadedImages === 2) {
+				setImagesLoaded(true);
+			}
+		};
 
 		originalImage.src = "/me.jpg";
 		ditheredImage.src = "/me_dithered.jpg";
 
+		originalImage.onload = checkAllLoaded;
 		ditheredImage.onload = () => {
 			canvas.width = ditheredImage.width;
 			canvas.height = ditheredImage.height;
 			ctx.drawImage(ditheredImage, 0, 0);
+			checkAllLoaded();
 		};
 
 		originalImageRef.current = originalImage;
@@ -98,7 +109,12 @@ const HeroImage = () => {
 			ref={canvasRef}
 			onMouseMove={handleMouseMove}
 			onMouseLeave={handleMouseLeave}
-			style={{ maxWidth: "100%", height: "auto" }}
+			style={{
+				maxWidth: "100%",
+				height: "auto",
+				opacity: imagesLoaded ? 1 : 0,
+				transition: "opacity 0.5s ease-in",
+			}}
 		/>
 	);
 };
