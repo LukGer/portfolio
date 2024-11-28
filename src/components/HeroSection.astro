@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import meDithered from "../../public/me_dithered.jpg";
+import { FlickeringText } from "./FlickeringText";
 import HeroImage from "./HeroImage";
 ---
 
@@ -27,7 +28,10 @@ import HeroImage from "./HeroImage";
       a Developer and Designer from Austria.
     </span>
     <span>
-      I build engaging digital experiences, blending code with creativity.
+      I build engaging digital experiences, blending <FlickeringText
+        client:load
+        text="code"
+      /> with creativity.
     </span>
   </div>
 </section>
