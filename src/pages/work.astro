@@ -1,10 +1,4 @@
 ---
-import {
-  BriefcaseBusinessIcon,
-  GraduationCapIcon,
-  LightbulbIcon,
-  SquareArrowOutUpRightIcon,
-} from "lucide-react";
 import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
 
@@ -39,7 +33,11 @@ const jobs = [
   <Header />
 
   <section class="flex-1 grid grid-cols-[auto,_1fr] py-4 md:py-12">
-    <svg
+    <ul>
+      {jobs.map((j, i) => <li>{j.title}</li>)}
+    </ul>
+
+    <!-- <svg
       class="w-8 h-full"
       viewBox="0 0 32 850"
       preserveAspectRatio="xMidYMin slice"
@@ -143,7 +141,7 @@ const jobs = [
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </section>
 </Layout>
 
