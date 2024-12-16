@@ -1,4 +1,6 @@
 ---
+import "../styles/main.css";
+
 import Footer from "@/components/Footer.astro";
 
 interface Props {
@@ -9,7 +11,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="bg-black">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="My portfolio site" />
@@ -18,54 +20,10 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
+  <body class="min-h-screen bg-background">
     <main class="flex flex-col min-h-screen px-12 md:px-[15%]">
       <slot />
     </main>
     <Footer />
   </body>
 </html>
-<style is:global>
-  @font-face {
-    font-family: "Space Mono";
-    src: url("/fonts/SpaceMono-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: "Space Mono";
-    src: url("/fonts/SpaceMono-Bold.ttf") format("truetype");
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  html {
-    font-family: system-ui, sans-serif;
-    background: black;
-
-    --color-primary: #65a30d;
-  }
-
-  body {
-    min-height: 100dvh;
-    @apply bg-background;
-  }
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .fade-in-up {
-    opacity: 0;
-    animation: fadeInUp 0.6s ease-out forwards;
-  }
-</style>
