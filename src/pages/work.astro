@@ -5,7 +5,6 @@ import {
   LightbulbIcon,
   SquareArrowOutUpRightIcon,
 } from "lucide-react";
-import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
 
 const jobs = [
@@ -36,8 +35,6 @@ const jobs = [
 ---
 
 <Layout title="Work - Lukas Gerhold">
-  <Header />
-
   <section class="flex-1 grid grid-cols-[auto_1fr] py-4 md:py-12">
     <svg
       class="w-8 h-full"
@@ -71,12 +68,12 @@ const jobs = [
                 stroke-width="2"
                 fill="none"
                 class="draw-path"
-                style={`animation-delay: ${index * 0.2 + 1}s`}
+                style={`animation-delay: ${index * 0.2 + 1.5}s`}
               />
             </svg>
             <div
               class="animate-fade-in-up flex flex-row items-center"
-              style={`animation-delay: ${index * 0.2 + 0.5}s;`}
+              style={`animation-delay: ${index * 0.2 + 0.8}s;`}
             >
               <div class="rounded-full p-4 border-gray-300 border-2 me-8">
                 {job.type === "job" ? (
@@ -117,16 +114,16 @@ const jobs = [
             stroke-width="2"
             fill="none"
             class="draw-path"
-            style={`animation-delay: ${jobs.length * 0.2 + 1}s`}></path>
+            style={`animation-delay: ${jobs.length * 0.2 + 1.5}s`}></path>
         </svg>
         <div class="flex-1">
           <div
             class="animate-fade-in-up flex flex-row items-center"
-            style={{ animationDelay: `${jobs.length * 0.2 + 0.5}s;` }}
+            style={{ animationDelay: `${jobs.length * 0.2 + 1}s;` }}
           >
             <div
               class="rounded-full size-14 grid place-items-center border-gray-300 border-2 me-8 glow-animate"
-              style={{ animationDelay: `${jobs.length * 0.2 + 1.5}s` }}
+              style={{ animationDelay: `${jobs.length * 0.2 + 2}s` }}
             >
               <LightbulbIcon size={24} />
             </div>
