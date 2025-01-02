@@ -11,6 +11,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   integrations: [react(), mdx()],
   vite: {
+    // @ts-ignore
     plugins: [tailwindcss()],
   },
 });
