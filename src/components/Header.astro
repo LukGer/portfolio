@@ -1,6 +1,6 @@
 ---
-import { ArrowRightIcon } from "lucide-react";
 import DancingName from "./DancingName";
+import UnderlineToBackground from "./UnderlineToBackground";
 ---
 
 <header
@@ -29,17 +29,12 @@ import DancingName from "./DancingName";
 
   <a
     href="mailto:lukger1999@gmail.com?subject=Hey,%20what's%20up?"
-    class="group font-mono text-sm text-primary uppercase inline-flex items-center"
+    class="font-mono text-sm text-primary uppercase"
   >
-    <span
-      class="transition-transform duration-300 ease-out group-hover:-translate-x-1"
-    >
-      Get in touch
-    </span>
-    <span
-      class="transition-all duration-300 ease-out md:opacity-0 translate-x-1 group-hover:opacity-100 group-hover:translate-x-0"
-    >
-      <ArrowRightIcon size={18} />
-    </span>
+    <UnderlineToBackground
+      client:load
+      label="Get in touch"
+      targetTextColor="#fef"
+    />
   </a>
 </header>

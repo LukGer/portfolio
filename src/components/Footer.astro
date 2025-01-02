@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import { SquareArrowOutUpRightIcon } from "lucide-react";
+import { CopyrightIcon, SquareArrowOutUpRightIcon } from "lucide-react";
+
+const year = new Date().getFullYear();
 ---
 
 <footer class="flex flex-col bg-black">
@@ -9,7 +11,9 @@ import { SquareArrowOutUpRightIcon } from "lucide-react";
     class="flex flex-col gap-6 md:gap-0 md:flex-row md:items-center px-12 py-12 text-white font-mono"
   >
     <div class="flex flex-col gap-4">
-      <span class="text-sm">(c) Lukas Gerhold - 2024</span>
+      <span class="text-sm inline-flex flex-row items-center gap-2">
+        <CopyrightIcon size={16} /> {year} - Lukas Gerhold</span
+      >
 
       <div class="flex flex-row items-center gap-8">
         <a

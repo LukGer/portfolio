@@ -35,3 +35,11 @@
   font-style: normal;
   font-display: swap;
 }
+
+body {
+  background-color: var(--color-background);
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+}

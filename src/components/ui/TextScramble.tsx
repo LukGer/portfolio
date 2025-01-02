@@ -1,4 +1,4 @@
-import { type MotionProps, motion } from "framer-motion";
+import { type MotionProps, motion } from "motion/react";
 import { type JSX, useEffect, useState } from "react";
 
 type TextScrambleProps = {

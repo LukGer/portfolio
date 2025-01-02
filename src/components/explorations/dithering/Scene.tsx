@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import { useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "motion/react";
 import { type ReactNode, useState } from "react";
 import CameraRig from "./CameraRig";
 import RotationControl from "./RotationControl";

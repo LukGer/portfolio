@@ -1,0 +1,10 @@
+---
+import NotFoundPage from "@/components/not-found-page";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="404 - Page not found">
+  <body class="h-full flex flex-col">
+    <NotFoundPage client:load />
+  </body>
+</BaseLayout>

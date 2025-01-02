@@ -1,21 +1,23 @@
 ---
 import { Image } from "astro:assets";
 import meDithered from "../../public/me_dithered.jpg";
-import { FlickeringText } from "./FlickeringText";
+import { CodeText } from "./CodeText";
+import { CreativityText } from "./CreativityText";
 import HeroImage from "./HeroImage";
 ---
 
 <section
   class="flex-1 flex md:flex-row-reverse flex-col gap-8 md:gap-12 py-12 items-center"
 >
-  <div class="animate-fade-in-up max-w-md" style="animation-delay: 0.4s">
-    <div class="hero-image-shadow rounded-lg overflow-hidden">
-      <div class="hidden md:block">
-        <HeroImage client:load />
-      </div>
-      <div class="md:hidden">
-        <Image src={meDithered} alt="me" width={300} height={400} />
-      </div>
+  <div
+    class="animate-fade-in-up max-w-md hero-image-shadow rounded-lg overflow-hidden"
+    style="animation-delay: 0.4s"
+  >
+    <div class="hidden md:block">
+      <HeroImage client:load />
+    </div>
+    <div class="md:hidden">
+      <Image src={meDithered} alt="me" width={300} height={400} />
     </div>
   </div>
 
@@ -28,10 +30,8 @@ import HeroImage from "./HeroImage";
       a Developer and Designer from Austria.
     </span>
     <span>
-      I build engaging digital experiences, blending <FlickeringText
-        client:load
-        text="code"
-      /> with creativity.
+      I build engaging digital experiences, blending <CodeText client:load />
+      with <CreativityText client:load />.
     </span>
   </div>
 </section>

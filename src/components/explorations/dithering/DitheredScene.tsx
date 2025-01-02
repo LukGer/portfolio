@@ -1,7 +1,7 @@
 import { Environment, Grid } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { EffectComposer } from "@react-three/postprocessing";
-import { useReducedMotion } from "framer-motion";
+import { useReducedMotion } from "motion/react";
 import { useState } from "react";
 import * as THREE from "three";
 import CameraRig from "./CameraRig";
