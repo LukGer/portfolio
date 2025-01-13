@@ -1,12 +1,148 @@
 ---
 import HeroSection from "@/components/HeroSection.astro";
+import MySkills from "@/components/MySkills";
 import Layout from "@/layouts/Layout.astro";
+import { ChevronDownIcon } from "lucide-react";
 ---
 
 <Layout title="Portfolio - Lukas Gerhold">
   <HeroSection />
 
-  <section class="h-screen flex flex-col items-center justify-center">
-    <p>Add personal infos</p>
+  <div class="flex flex-col items-center justify-center">
+    <ChevronDownIcon className="size-8 animate-bounce" />
+  </div>
+
+  <section class="h-screen w-full py-24 flex flex-col">
+    <div class="bento flex-1">
+      <div
+        class="rounded-lg bento-cell cell1 shadow bg-slate-800 relative overflow-hidden flex flex-col"
+      >
+        <MySkills client:load />
+      </div>
+      <div class="rounded-lg bento-cell cell2 shadow">Cell 2</div>
+      <div class="rounded-lg bento-cell cell3 shadow">Cell 3</div>
+      <div class="rounded-lg bento-cell cell4 shadow">Cell 4</div>
+    </div>
   </section>
 </Layout>
+
+<style>
+  .bento {
+    --transition: linear(
+      0,
+      -0.0349,
+      -0.0215,
+      0.0287,
+      0.109,
+      0.209,
+      0.32,
+      0.436,
+      0.552,
+      0.663,
+      0.765,
+      0.856,
+      0.934,
+      1,
+      1.05,
+      1.09,
+      1.12,
+      1.14,
+      1.15,
+      1.15,
+      1.14,
+      1.13,
+      1.12,
+      1.1,
+      1.09,
+      1.07,
+      1.06,
+      1.04,
+      1.03,
+      1.01,
+      1,
+      0.996,
+      0.989,
+      0.985,
+      0.981,
+      0.98,
+      0.979,
+      0.979,
+      0.98,
+      0.982,
+      0.984,
+      0.986,
+      0.989,
+      0.991,
+      0.993,
+      0.995,
+      0.997,
+      0.999,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    );
+
+    display: grid;
+    grid-gap: 1rem;
+
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    transition:
+      grid-template-columns 1s var(--transition),
+      grid-template-rows 1s var(--transition);
+  }
+
+  .bento-cell {
+    transition: background-color 300ms;
+  }
+
+  .cell1 {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 2;
+  }
+  .cell2 {
+    grid-column: 2 / span 2;
+    grid-row: 1 / span 2;
+  }
+  .cell3 {
+    grid-column: 1 / span 2;
+    grid-row: 3 / span 1;
+  }
+  .cell4 {
+    grid-column: 3 / span 1;
+    grid-row: 3 / span 1;
+  }
+
+  .bento:has(.cell1:hover) {
+    grid-template-columns: 1.2fr 1fr 1fr;
+    grid-template-rows: 1.2fr 1fr 1fr;
+  }
+
+  .bento:has(.cell2:hover) {
+    grid-template-columns: 1fr 1fr 1.2fr;
+    grid-template-rows: 1.2fr 1fr 1fr;
+  }
+
+  .bento:has(.cell3:hover) {
+    grid-template-columns: 1.2fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1.2fr;
+  }
+
+  .bento:has(.cell4:hover) {
+    grid-template-rows: 1fr 1fr 1.2fr;
+    grid-template-columns: 1fr 1fr 1.2fr;
+  }
+</style>

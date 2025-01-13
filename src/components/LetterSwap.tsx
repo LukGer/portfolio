@@ -84,7 +84,7 @@ const LetterSwapForward = ({
 
   return (
     <span
-      className={`inline-flex justify-center items-center relative overflow-hidden  ${className} `}
+      className={`inline-flex justify-center items-center relative overflow-y-hidden  ${className} `}
       onMouseEnter={hoverStart}
       onClick={onClick}
       ref={scope}

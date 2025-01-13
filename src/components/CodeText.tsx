@@ -6,7 +6,7 @@ export function CodeText() {
 
   return (
     <TextScramble
-      className="cursor-pointer font-mono underline text-primary"
+      className="font-mono underline text-primary"
       as="span"
       speed={0.1}
       trigger={isTrigger}

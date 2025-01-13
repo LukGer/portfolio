@@ -2,22 +2,38 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-background: oklch(98.51% 0 0);
+  --color-background: oklch(98.2% 0.0041 91.45);
   --color-primary: oklch(64.82% 0.1754 131.68);
 
   --font-mono: "Space Mono", monospace;
+  --font-serif: "Classy Vogue", serif;
 
   --animate-fade-in-up: fadeInUp 0.6s ease-out forwards;
+  --animate-circling: circling calc(var(--circling-duration, 10) * 1s) linear
+    infinite;
+}
 
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes circling {
+  from {
+    transform: rotate(calc(var(--circling-offset, 0) * 1deg))
+      translate(calc(var(--circling-radius, 100) * 1px), 0)
+      rotate(calc(var(--circling-offset, 0) * -1deg));
+  }
+  to {
+    transform: rotate(calc(360deg + (var(--circling-offset, 0) * 1deg)))
+      translate(calc(var(--circling-radius, 100) * 1px), 0)
+      rotate(calc(-360deg + (var(--circling-offset, 0) * -1deg)));
   }
 }
 
@@ -34,6 +50,24 @@
   font-weight: bold;
   font-style: normal;
   font-display: swap;
+}
+
+@font-face {
+  font-family: "Garamond";
+  src: url("/fonts/EB_Garamond/EBGaramond-VariableFont_wght.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Garamond";
+  src: url("/fonts/EB_Garamond/EBGaramond-Italic-VariableFont_wght.ttf")
+    format("truetype");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Classy Vogue";
+  src: url("/fonts/Classy_Vogue.otf") format("opentype");
 }
 
 body {

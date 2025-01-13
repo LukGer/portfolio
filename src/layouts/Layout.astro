@@ -12,9 +12,9 @@ const { title } = Astro.props;
 
 <BaseLayout title={title}>
   <body>
-    <main class="min-h-screen px-12 md:px-[15%]">
+    <main class="min-h-screen px-12 md:px-[15%] flex flex-col">
       <Header />
-      <div class="h-full w-full flex flex-col">
+      <div class="flex-1 w-full flex flex-col">
         <slot />
       </div>
     </main>
