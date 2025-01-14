@@ -10,8 +10,8 @@ const MySkills = () => {
     "react_logo.svg",
   ];
 
-  const durationValue = useSpring(0, { stiffness: 200, damping: 20 });
-  const radiusValue = useSpring(0, { stiffness: 200, damping: 20 });
+  const durationValue = useSpring(20, { stiffness: 200, damping: 20 });
+  const radiusValue = useSpring(20, { stiffness: 200, damping: 20 });
 
   return (
     <motion.div
@@ -21,8 +21,8 @@ const MySkills = () => {
         radiusValue.set(80);
       }}
       onHoverEnd={() => {
-        durationValue.set(0);
-        radiusValue.set(0);
+        durationValue.set(20);
+        radiusValue.set(20);
       }}
     >
       <h2 className="text-3xl font-bold font-mono text-slate-50 p-4">Skills</h2>
