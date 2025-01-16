@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+import UnderlineToBackground from "./UnderlineToBackground";
+---
+
+<h2 class="text-3xl font-bold font-serif text-slate-900">Get in touch</h2>
+<p class="text-slate-900 max-w-64">
+  If you have any questions or want to work together, feel free to contact me.
+</p>
+
+<div
+  class="flex flex-row items-center gap-4 font-serif text-xl text-primary uppercase z-10"
+>
+  <a href="mailto:lukger1999@gmail.com?subject=Hey,%20what's%20up?">
+    <UnderlineToBackground client:load label="Email" targetTextColor="#fef" />
+  </a>
+
+  <a
+    href="https://www.linkedin.com/in/lukas-gerhold-57a364183/"
+    target="_blank"
+  >
+    <UnderlineToBackground
+      client:load
+      label="LinkedIn"
+      targetTextColor="#fef"
+    />
+  </a>
+
+  <a href="https://www.github.com/lukger" target="_blank">
+    <UnderlineToBackground client:load label="Github" targetTextColor="#fef" />
+  </a>
+</div>
+
+<Image
+  src="/signature.svg"
+  height={48}
+  width={16}
+  alt=""
+  class="h-24 w-auto self-end absolute bottom-0 right-0 opacity-20"
+/>

@@ -1,6 +1,6 @@
 ---
 import HeroSection from "@/components/HeroSection.astro";
-import UnderlineToBackground from "@/components/UnderlineToBackground";
+import Contact from "@/components/contact.astro";
 import MyHobbies from "@/components/my-hobbies";
 import MySkills from "@/components/my-skills";
 import Layout from "@/layouts/Layout.astro";
@@ -21,26 +21,9 @@ import Layout from "@/layouts/Layout.astro";
       </div>
       <div class="rounded-lg bento-cell cell3 shadow bg-slate-400"></div>
       <div
-        class="rounded-lg bento-cell cell4 shadow bg-slate-200 p-4 flex flex-col gap-2"
+        class="rounded-lg bento-cell cell4 shadow bg-slate-200 p-4 flex flex-col gap-2 relative"
       >
-        <h2 class="text-3xl font-bold font-serif text-slate-900">
-          Get in touch
-        </h2>
-        <p class="text-slate-900 max-w-64">
-          If you have any questions or want to work together, feel free to
-          contact me.
-        </p>
-
-        <a
-          href="mailto:lukger1999@gmail.com?subject=Hey,%20what's%20up?"
-          class="font-serif text-xl text-primary uppercase"
-        >
-          <UnderlineToBackground
-            client:load
-            label="Email"
-            targetTextColor="#fef"
-          />
-        </a>
+        <Contact />
       </div>
     </div>
   </section>

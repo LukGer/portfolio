@@ -1,13 +1,15 @@
 import {
-  BikeIcon,
+  BirdIcon,
   BookOpenIcon,
+  CameraIcon,
   Code2Icon,
   DumbbellIcon,
   MountainSnowIcon,
   PersonStandingIcon,
   RotateCcwIcon,
 } from "lucide-react";
-import { useRef } from "react";
+import { motion, useInView } from "motion/react";
+import { useEffect, useRef } from "react";
 import Gravity, { MatterBody, type GravityRef } from "./ui/matterbody";
 
 export default function MyHobbies() {
@@ -42,12 +44,30 @@ export default function MyHobbies() {
       color: "#000",
       icon: <BookOpenIcon />,
     },
+    {
+      title: "Photography",
+      backgroundColor: "#F4A259",
+      color: "#000",
+      icon: <CameraIcon />,
+    },
   ];
 
+  const containerRef = useRef<HTMLDivElement>(null);
   const ref = useRef<GravityRef>(null);
 
+  const inView = useInView(containerRef, { once: true });
+
+  useEffect(() => {
+    if (inView) {
+      ref.current?.start();
+    }
+  }, [inView]);
+
   return (
-    <div className="p-4 relative h-full flex flex-col">
+    <motion.div
+      ref={containerRef}
+      className="p-4 relative h-full flex flex-col"
+    >
       <button
         type="button"
         title="Reset"
@@ -62,6 +82,12 @@ export default function MyHobbies() {
         I enjoy doing various activities in my free time. Here are some of them.
       </p>
 
+      <div className="sr-only">
+        {hobbies.map((hobby) => (
+          <span key={hobby.title}>{hobby.title}</span>
+        ))}
+      </div>
+
       <Gravity
         ref={ref}
         gravity={{ x: 0, y: 0.5 }}
@@ -69,11 +95,12 @@ export default function MyHobbies() {
         className="w-full h-full"
         addTopWall
         grabCursor
+        autoStart={false}
       >
         {hobbies.map((hobby, index) => (
           <MatterBody
             key={hobby.title}
-            matterBodyOptions={{ friction: 0.5, restitution: 0.2 }}
+            matterBodyOptions={{ friction: 0.5, restitution: 0.5 }}
             x={100 + index * 80}
             y={30 + Math.random() * 100}
           >
@@ -92,10 +119,10 @@ export default function MyHobbies() {
         ))}
       </Gravity>
 
-      <BikeIcon
+      <BirdIcon
         size={120}
         className="text-white opacity-40 absolute right-2 bottom-0 pointer-events-none"
       />
-    </div>
+    </motion.div>
   );
 }

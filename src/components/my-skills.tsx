@@ -4,9 +4,10 @@ import React from "react";
 
 const MySkills = () => {
   const logos = [
-    "postgres.svg",
+    "postgres_logo.svg",
     "angular_logo.png",
     "dotnet_logo.svg",
+    "figma_logo.svg",
     "astro_logo.svg",
     "react_logo.svg",
   ];
@@ -26,7 +27,9 @@ const MySkills = () => {
         radiusValue.set(20);
       }}
     >
-      <h2 className="text-3xl font-bold font-mono text-slate-50 p-4">Skills</h2>
+      <h2 className="text-3xl font-bold font-serif text-slate-50 p-4">
+        Skills
+      </h2>
       <p className="text-slate-50 px-4 max-w-56">
         Skills and Tools I regularly use and am proficient in.
       </p>
