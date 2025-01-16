@@ -2,7 +2,7 @@ import { motion, useAnimationControls } from "motion/react";
 import React, { useCallback, useMemo, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import { useDimensions } from "@/hooks/useDimensions";
+import { useDimensions } from "@/hooks/use-dimensions";
 import { cn } from "@/lib/utils";
 
 interface PixelTrailProps {

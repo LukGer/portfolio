@@ -4,9 +4,10 @@ import React from "react";
 
 const MySkills = () => {
   const logos = [
+    "postgres.svg",
     "angular_logo.png",
-    "astro_logo.svg",
     "dotnet_logo.svg",
+    "astro_logo.svg",
     "react_logo.svg",
   ];
 

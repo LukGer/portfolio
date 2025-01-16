@@ -1,26 +1,24 @@
 ---
 import HeroSection from "@/components/HeroSection.astro";
 import MySkills from "@/components/MySkills";
+import MyHobbies from "@/components/my-hobbies";
 import Layout from "@/layouts/Layout.astro";
-import { ChevronDownIcon } from "lucide-react";
 ---
 
 <Layout title="Portfolio - Lukas Gerhold">
   <HeroSection />
 
-  <div class="flex flex-col items-center justify-center">
-    <ChevronDownIcon className="size-8 animate-bounce" />
-  </div>
-
-  <section class="h-screen w-full py-36 flex flex-col">
+  <section class="h-screen pb-24 w-full flex flex-col">
     <div class="bento flex-1">
       <div
         class="rounded-lg bento-cell cell1 shadow bg-slate-800 relative overflow-hidden flex flex-col"
       >
         <MySkills client:load />
       </div>
-      <div class="rounded-lg bento-cell cell2 shadow">Cell 2</div>
-      <div class="rounded-lg bento-cell cell3 shadow">Cell 3</div>
+      <div class="rounded-lg bento-cell cell2 shadow bg-slate-500">
+        <MyHobbies client:load />
+      </div>
+      <div class="rounded-lg bento-cell cell3 shadow"></div>
       <div class="rounded-lg bento-cell cell4 shadow">Cell 4</div>
     </div>
   </section>
