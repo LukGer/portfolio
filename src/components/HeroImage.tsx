@@ -1,8 +1,6 @@
 import { useMotionValue, useSpring, useTransform } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
-const ASPECT_RATIO = 300 / 400; // Original image aspect ratio
-
 const HeroImage = () => {
   const [imagesLoaded, setImagesLoaded] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -26,18 +24,6 @@ const HeroImage = () => {
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-
-    const updateCanvasSize = () => {
-      const parent = canvas.parentElement;
-      if (!parent) return;
-
-      const parentHeight = parent.clientHeight;
-      canvas.height = parentHeight;
-      canvas.width = parentHeight * ASPECT_RATIO;
-    };
-
-    updateCanvasSize();
-    window.addEventListener("resize", updateCanvasSize);
 
     const originalImage = new Image();
     const ditheredImage = new Image();
@@ -63,10 +49,6 @@ const HeroImage = () => {
 
     originalImageRef.current = originalImage;
     ditheredImageRef.current = ditheredImage;
-
-    return () => {
-      window.removeEventListener("resize", updateCanvasSize);
-    };
   }, []);
 
   useEffect(() => {
@@ -128,8 +110,8 @@ const HeroImage = () => {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{
-        width: "100%",
-        height: "100%",
+        maxWidth: "100%",
+        height: "auto",
         opacity: imagesLoaded ? 1 : 0,
         transition: "opacity 0.5s ease-in",
       }}

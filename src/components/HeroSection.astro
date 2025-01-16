@@ -24,13 +24,13 @@ import HeroImage from "./HeroImage";
     </div>
 
     <div
-      class="animate-fade-in-up max-w-md h-full hero-image-shadow rounded-lg overflow-hidden"
+      class="animate-fade-in-up max-w-md h-full hero-image-shadow"
       style="animation-delay: 0.4s"
     >
-      <div class="hidden md:block">
+      <div class="hidden md:block overflow-hidden rounded-lg">
         <HeroImage client:load />
       </div>
-      <div class="md:hidden h-full">
+      <div class="md:hidden h-full overflow-hidden rounded-lg">
         <Image
           src={meDithered}
           alt="me"

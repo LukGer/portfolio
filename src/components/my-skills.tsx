@@ -54,7 +54,7 @@ const MySkills = () => {
 
       <Code2Icon
         size={120}
-        className="text-white opacity-10 absolute -right-2 -bottom-4 pointer-events-none"
+        className="text-white opacity-20 absolute -right-2 -bottom-4 pointer-events-none"
       />
     </motion.div>
   );
