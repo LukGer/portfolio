@@ -26,6 +26,7 @@ type GravityProps = {
   addTopWall?: boolean;
   autoStart?: boolean;
   className?: string;
+  padding?: number | { x: number; y: number }; // Add this line
 };
 
 type PhysicsBody = {
@@ -124,6 +125,7 @@ const Gravity = forwardRef<GravityRef, GravityProps>(
       addTopWall = true,
       autoStart = true,
       className,
+      padding = 0, // Add this line
       ...props
     },
     ref
@@ -140,6 +142,13 @@ const Gravity = forwardRef<GravityRef, GravityProps>(
 
     const isRunning = useRef(false);
 
+    const getPadding = useCallback(() => {
+      if (typeof padding === "number") {
+        return { x: padding, y: padding };
+      }
+      return padding;
+    }, [padding]);
+
     // Register Matter.js body in the physics world
     const registerElement = useCallback(
       (id: string, element: HTMLElement, props: MatterBodyProps) => {
@@ -147,11 +156,16 @@ const Gravity = forwardRef<GravityRef, GravityProps>(
         const width = element.offsetWidth;
         const height = element.offsetHeight;
         const canvasRect = canvas.current!.getBoundingClientRect();
+        const { x: paddingX, y: paddingY } = getPadding();
 
         const angle = (props.angle || 0) * (Math.PI / 180);
 
-        const x = calculatePosition(props.x, canvasRect.width, width);
-        const y = calculatePosition(props.y, canvasRect.height, height);
+        const x =
+          calculatePosition(props.x, canvasRect.width - paddingX * 2, width) +
+          paddingX;
+        const y =
+          calculatePosition(props.y, canvasRect.height - paddingY * 2, height) +
+          paddingY;
 
         let body: Matter.Body | null = null;
         if (props.bodyType === "circle") {
@@ -201,7 +215,7 @@ const Gravity = forwardRef<GravityRef, GravityProps>(
           bodiesMap.current.set(id, { element, body, props });
         }
       },
-      [debug]
+      [debug, getPadding]
     );
 
     // Unregister Matter.js body from the physics world
@@ -232,6 +246,7 @@ const Gravity = forwardRef<GravityRef, GravityProps>(
 
       const height = canvas.current.offsetHeight;
       const width = canvas.current.offsetWidth;
+      const { x: paddingX, y: paddingY } = getPadding();
 
       Matter.Common.setDecomp(require("poly-decomp"));
 
@@ -263,41 +278,55 @@ const Gravity = forwardRef<GravityRef, GravityProps>(
       // Add walls
       const walls = [
         // Floor
-        Matter.Bodies.rectangle(width / 2, height + 10, width, 20, {
-          isStatic: true,
-          friction: 1,
-          render: {
-            visible: debug,
-          },
-        }),
-
+        Matter.Bodies.rectangle(
+          width / 2,
+          height - paddingY,
+          width - paddingX * 2,
+          20,
+          {
+            isStatic: true,
+            friction: 1,
+            render: { visible: debug },
+          }
+        ),
         // Right wall
-        Matter.Bodies.rectangle(width + 10, height / 2, 20, height, {
-          isStatic: true,
-          friction: 1,
-          render: {
-            visible: debug,
-          },
-        }),
-
+        Matter.Bodies.rectangle(
+          width - paddingX,
+          height / 2,
+          20,
+          height - paddingY * 2,
+          {
+            isStatic: true,
+            friction: 1,
+            render: { visible: debug },
+          }
+        ),
         // Left wall
-        Matter.Bodies.rectangle(-10, height / 2, 20, height, {
-          isStatic: true,
-          friction: 1,
-          render: {
-            visible: debug,
-          },
-        }),
+        Matter.Bodies.rectangle(
+          paddingX,
+          height / 2,
+          20,
+          height - paddingY * 2,
+          {
+            isStatic: true,
+            friction: 1,
+            render: { visible: debug },
+          }
+        ),
       ];
 
       const topWall = addTopWall
-        ? Matter.Bodies.rectangle(width / 2, -10, width, 20, {
-            isStatic: true,
-            friction: 1,
-            render: {
-              visible: debug,
-            },
-          })
+        ? Matter.Bodies.rectangle(
+            width / 2,
+            paddingY,
+            width - paddingX * 2,
+            20,
+            {
+              isStatic: true,
+              friction: 1,
+              render: { visible: debug },
+            }
+          )
         : null;
 
       if (topWall) {
@@ -363,7 +392,7 @@ const Gravity = forwardRef<GravityRef, GravityProps>(
         runner.current.enabled = true;
         startEngine();
       }
-    }, [updateElements, debug, autoStart]);
+    }, [updateElements, debug, autoStart, getPadding]);
 
     // Clear the Matter.js world
     const clearRenderer = useCallback(() => {
