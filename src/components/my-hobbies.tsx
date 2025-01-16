@@ -1,5 +1,3 @@
-"use client";
-
 import { BikeIcon } from "lucide-react";
 import Gravity, { MatterBody } from "./ui/matterbody";
 

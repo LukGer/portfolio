@@ -7,11 +7,13 @@ import mdx from "@astrojs/mdx";
 
 import tailwindcss from "@tailwindcss/vite";
 
+import commonjs from "vite-plugin-commonjs";
+
 // https://astro.build/config
 export default defineConfig({
   integrations: [react(), mdx()],
   vite: {
     // @ts-ignore
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss(), commonjs()],
   },
 });

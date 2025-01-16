@@ -3,7 +3,6 @@
 import { calculatePosition, parsePathToVertices } from "@/lib/utils";
 import lodash from "lodash";
 import Matter from "matter-js";
-import polyDecomp from "poly-decomp";
 import {
   type ReactNode,
   createContext,
@@ -234,7 +233,7 @@ const Gravity = forwardRef<GravityRef, GravityProps>(
       const height = canvas.current.offsetHeight;
       const width = canvas.current.offsetWidth;
 
-      Matter.Common.setDecomp(polyDecomp);
+      Matter.Common.setDecomp(require("poly-decomp"));
 
       engine.current.gravity.x = gravity.x;
       engine.current.gravity.y = gravity.y;
