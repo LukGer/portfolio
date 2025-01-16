@@ -72,7 +72,10 @@ export default function MyHobbies() {
         type="button"
         title="Reset"
         className="absolute top-2 right-2 cursor-pointer p-2 z-10"
-        onClick={() => ref.current?.reset()}
+        onClick={() => {
+          ref.current?.reset();
+          ref.current?.start();
+        }}
       >
         <RotateCcwIcon size={24} />
       </button>
