@@ -2,7 +2,7 @@ import { motion, useAnimationControls } from "motion/react";
 import React, { useCallback, useMemo, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import { useDimensions } from "@/hooks/use-dimensions";
+import { useDimensions } from "@/hooks/useDimensions";
 import { cn } from "@/lib/utils";
 
 interface PixelTrailProps {
@@ -36,6 +36,7 @@ const PixelTrail: React.FC<PixelTrailProps> = ({
         `${trailId.current}-pixel-${x}-${y}`
       );
       if (pixelElement) {
+        // biome-ignore lint/suspicious/noExplicitAny: <explanation>
         const animatePixel = (pixelElement as any).__animatePixel;
         if (animatePixel) animatePixel();
       }
@@ -104,6 +105,7 @@ const PixelDot: React.FC<PixelDotProps> = React.memo(
     const ref = useCallback(
       (node: HTMLDivElement | null) => {
         if (node) {
+          // biome-ignore lint/suspicious/noExplicitAny: <explanation>
           (node as any).__animatePixel = animatePixel;
         }
       },

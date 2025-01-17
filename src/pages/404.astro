@@ -1,10 +1,26 @@
 ---
-import NotFoundPage from "@/components/not-found-page";
+import PixelTrail from "@/components/PixelTrail";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
 
 <BaseLayout title="404 - Page not found">
   <body class="h-full flex flex-col">
-    <NotFoundPage client:load />
+    <div class="h-screen bg-white text-black flex flex-col font-mono">
+      <div class="absolute inset-0 z-0">
+        <PixelTrail
+          client:load
+          pixelSize={24}
+          fadeDuration={500}
+          pixelClassName="bg-primary"
+        />
+      </div>
+
+      <div class="justify-center items-center flex flex-col w-full h-full">
+        <h2 class="text-[12rem] z-10 pointer-events-none">404</h2>
+        <p class="pt-0.5 text-xl z-10 pointer-events-none">page not found</p>
+
+        <a href="/" class="mt-4 z-10 hover:text-primary"> Go back home </a>
+      </div>
+    </div>
   </body>
 </BaseLayout>

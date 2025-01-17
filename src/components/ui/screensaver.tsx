@@ -4,7 +4,7 @@ import { motion, useAnimationFrame, useMotionValue } from "motion/react";
 import type React from "react";
 import { useEffect, useRef } from "react";
 
-import { useDimensions } from "@/hooks/use-dimensions";
+import { useDimensions } from "@/hooks/useDimensions";
 import { cn } from "@/lib/utils";
 
 type ScreensaverProps = {

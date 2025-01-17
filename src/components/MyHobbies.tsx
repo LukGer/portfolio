@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { motion, useInView } from "motion/react";
 import { useEffect, useRef } from "react";
-import Gravity, { MatterBody, type GravityRef } from "./ui/matterbody";
+import Gravity, { MatterBody, type GravityRef } from "./ui/Gravity";
 
 export default function MyHobbies() {
   const hobbies = [
@@ -95,7 +95,7 @@ export default function MyHobbies() {
         ref={ref}
         gravity={{ x: 0, y: 0.5 }}
         padding={20}
-        className="w-full h-full"
+        className="w-full h-full z-10"
         addTopWall
         grabCursor
         autoStart={false}
