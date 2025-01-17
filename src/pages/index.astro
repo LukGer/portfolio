@@ -2,8 +2,8 @@
 import Contact from "@/components/Contact.astro";
 import HeroSection from "@/components/HeroSection.astro";
 import MyHobbies from "@/components/MyHobbies";
+import MyProjects from "@/components/MyProjects";
 import MySkills from "@/components/MySkills";
-import Projects from "@/components/Projects.astro";
 import Layout from "@/layouts/Layout.astro";
 ---
 
@@ -20,8 +20,10 @@ import Layout from "@/layouts/Layout.astro";
       <div class="rounded-lg bento-cell cell2 shadow bg-slate-600">
         <MyHobbies client:load />
       </div>
-      <div class="rounded-lg bento-cell cell3 shadow bg-slate-400 p-4 relative">
-        <Projects />
+      <div
+        class="rounded-lg bento-cell cell3 shadow bg-slate-400 p-4 relative overflow-hidden"
+      >
+        <MyProjects client:load />
       </div>
       <div
         class="rounded-lg bento-cell cell4 shadow bg-slate-200 p-4 flex flex-col gap-2 relative"
