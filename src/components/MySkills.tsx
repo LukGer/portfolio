@@ -1,6 +1,7 @@
+import useScreenSize from "@/hooks/useScreenSize";
 import { Code2Icon } from "lucide-react";
-import { type MotionValue, motion, useSpring } from "motion/react";
-import React from "react";
+import { type MotionValue, motion, useInView, useSpring } from "motion/react";
+import React, { useEffect, useRef } from "react";
 
 const MySkills = () => {
   const logos = [
@@ -15,16 +16,34 @@ const MySkills = () => {
   const durationValue = useSpring(20, { stiffness: 200, damping: 20 });
   const radiusValue = useSpring(20, { stiffness: 200, damping: 20 });
 
+  const size = useScreenSize();
+
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const inView = useInView(containerRef, { once: true });
+
+  useEffect(() => {
+    if (size.lessThan("md") && inView) {
+      durationValue.set(10);
+      radiusValue.set(70);
+    }
+  }, [size, inView, durationValue, radiusValue]);
+
   return (
     <motion.div
+      ref={containerRef}
       className="flex-1 flex flex-col"
       onHoverStart={() => {
-        durationValue.set(10);
-        radiusValue.set(80);
+        if (!size.lessThan("md")) {
+          durationValue.set(10);
+          radiusValue.set(80);
+        }
       }}
       onHoverEnd={() => {
-        durationValue.set(20);
-        radiusValue.set(20);
+        if (!size.lessThan("md")) {
+          durationValue.set(20);
+          radiusValue.set(20);
+        }
       }}
     >
       <h2 className="text-3xl font-bold font-serif text-slate-50 p-4">

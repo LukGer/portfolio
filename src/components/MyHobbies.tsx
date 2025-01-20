@@ -1,3 +1,4 @@
+import useScreenSize from "@/hooks/useScreenSize";
 import {
   BirdIcon,
   BookOpenIcon,
@@ -63,24 +64,30 @@ export default function MyHobbies() {
     }
   }, [inView]);
 
+  const size = useScreenSize();
+
   return (
     <motion.div
       ref={containerRef}
       className="p-4 relative h-full flex flex-col"
     >
-      <button
-        type="button"
-        title="Reset"
-        className="absolute top-2 right-2 cursor-pointer p-2 z-10"
-        onClick={() => {
-          ref.current?.reset();
-          ref.current?.start();
-        }}
-      >
-        <RotateCcwIcon size={24} />
-      </button>
+      <div className="flex flex-row items-center z-20">
+        <h2 className="text-3xl font-bold font-serif text-slate-50">Hobbies</h2>
 
-      <h2 className="text-3xl font-bold font-serif text-slate-50">Hobbies</h2>
+        <div className="flex-1" />
+
+        <button
+          type="button"
+          title="Reset"
+          className="cursor-pointer p-2 z-10"
+          onClick={() => {
+            ref.current?.reset();
+            ref.current?.start();
+          }}
+        >
+          <RotateCcwIcon size={24} />
+        </button>
+      </div>
       <p className="text-slate-50 max-w-lg">
         I enjoy doing various activities in my free time. Here are some of them.
       </p>
@@ -93,8 +100,8 @@ export default function MyHobbies() {
 
       <Gravity
         ref={ref}
-        gravity={{ x: 0, y: 0.5 }}
-        padding={20}
+        gravity={{ x: 0, y: 0.2 }}
+        padding={size.lessThan("md") ? 10 : 20}
         className="w-full h-full z-10"
         addTopWall
         grabCursor
@@ -103,9 +110,9 @@ export default function MyHobbies() {
         {hobbies.map((hobby, index) => (
           <MatterBody
             key={hobby.title}
-            matterBodyOptions={{ friction: 0.5, restitution: 0.5 }}
-            x={100 + index * 80}
-            y={30 + Math.random() * 100}
+            matterBodyOptions={{ friction: 0.3, restitution: 0.6 }}
+            x={`${5 + index * (90 / (hobbies.length - 1))}%`}
+            y={30 + Math.random() * 200}
           >
             <div
               style={{
