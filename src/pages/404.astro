@@ -1,26 +1,20 @@
 ---
-import PixelTrail from "@/components/PixelTrail";
-import BaseLayout from "@/layouts/BaseLayout.astro";
+import PortfolioLayout from "../layouts/PortfolioLayout.astro";
+
 ---
 
-<BaseLayout title="404 - Page not found">
-  <body class="h-full flex flex-col">
-    <div class="h-screen bg-white text-black flex flex-col font-mono">
-      <div class="absolute inset-0 z-0">
-        <PixelTrail
-          client:load
-          pixelSize={24}
-          fadeDuration={500}
-          pixelClassName="bg-primary"
-        />
-      </div>
-
-      <div class="justify-center items-center flex flex-col w-full h-full">
-        <h2 class="text-[12rem] z-10 pointer-events-none">404</h2>
-        <p class="pt-0.5 text-xl z-10 pointer-events-none">page not found</p>
-
-        <a href="/" class="mt-4 z-10 hover:text-primary"> Go back home </a>
-      </div>
-    </div>
-  </body>
-</BaseLayout>
+<PortfolioLayout title="404 — Lukas Gerhold" description="Page not found.">
+	<div
+		class="flex min-h-screen flex-col items-center justify-center gap-4 px-6 py-12 text-center font-sans text-ink"
+	>
+		<div class="text-[11px] tracking-[0.1em] text-muted tabular-nums">404</div>
+		<h1 class="text-sm font-bold tracking-wide">NOT FOUND</h1>
+		<p class="max-w-[320px] text-[13px] leading-relaxed text-ink-secondary">
+			This path does not exist. Try the index instead.
+		</p>
+		<a
+			class="mt-2 border-b border-lime pb-0.5 text-xs text-lime no-underline transition-opacity hover:opacity-80"
+			href="/">← BACK HOME</a
+		>
+	</div>
+</PortfolioLayout>

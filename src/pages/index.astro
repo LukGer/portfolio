@@ -1,11 +1,225 @@
 ---
-import GridSection from "@/components/GridSection.astro";
-import HeroSection from "@/components/HeroSection.astro";
-import Layout from "@/layouts/Layout.astro";
+import ContactGrid from "@/components/portfolio/ContactGrid.astro";
+import { CopyrightYear } from "@/components/portfolio/CopyrightYear.tsx";
+import { GlobalPortfolioEffects } from "@/components/portfolio/GlobalPortfolioEffects.tsx";
+import { LinzWeather } from "@/components/portfolio/LinzWeather";
+import OffScreenRows from "@/components/portfolio/OffScreenRows.astro";
+import PortfolioNav from "@/components/portfolio/PortfolioNav.astro";
+import TimelineRows from "@/components/portfolio/TimelineRows.astro";
+import { ViennaClock } from "@/components/portfolio/ViennaClock.tsx";
+import { portfolio } from "@/data/portfolio";
+import PortfolioLayout from "@/layouts/PortfolioLayout.astro";
+
+const counts = {
+  work: portfolio.work.length,
+  projects: portfolio.projects.length,
+  stack: portfolio.stack.length,
+  offScreen: portfolio.offScreen.length,
+  contact: portfolio.contact.length,
+};
 ---
 
-<Layout title="Portfolio - Lukas Gerhold">
-  <HeroSection />
+<PortfolioLayout>
+  <GlobalPortfolioEffects client:load />
+  <div
+    class="mx-auto max-w-[1280px] px-16 pb-16 pt-14 max-[900px]:px-6 max-[900px]:pb-12 max-[900px]:pt-8"
+  >
+    <div
+      class="grid grid-cols-[300px_1fr] gap-14 max-[900px]:grid-cols-1 max-[900px]:gap-8"
+    >
+      <aside
+        class="sticky top-14 self-start max-[900px]:relative max-[900px]:top-0"
+      >
+        <div class="mb-6 text-[11px] tracking-[0.1em] text-muted">
+          INDEX ⸺ LG / 26
+        </div>
+        <h1 class="mb-4 text-5xl font-bold leading-snug tracking-tight">
+          Lukas Gerhold<span class="text-lime">.</span>
+        </h1>
+        <p
+          class="mb-6 text-[13px] leading-relaxed text-pretty text-ink-secondary"
+        >
+          I make digital things that are clear, fast, and a little bit playful.
+          Currently studying <em class="font-bold not-italic text-ink"
+            >Design of Digital Products</em
+          > at FH Upper Austria. Fullstack engineer at <em
+            class="font-bold not-italic text-ink">RideAmigos</em
+          >
+          — AI & Transport Management; previously at <em
+            class="font-bold not-italic text-ink">Hofer KG</em
+          >.
+        </p>
 
-  <GridSection />
-</Layout>
+        <PortfolioNav />
+
+        <div
+          class="border-t border-line pt-4 text-[11px] leading-relaxed text-muted"
+        >
+          <div class="flex justify-between">
+            <span>LINZ, AT</span>
+            <ViennaClock client:load />
+          </div>
+          <div class="mt-1 flex justify-between">
+            <span>STATUS</span>
+            <span class="text-lime"
+              ><span
+                class="mr-1.5 inline-block size-1.5 animate-pulse-status rounded-full bg-lime"
+              ></span>OPEN Q3</span
+            >
+          </div>
+          <div class="mt-1 flex justify-between">
+            <span>WEATHER</span>
+            <LinzWeather client:load />
+          </div>
+        </div>
+      </aside>
+
+      <main>
+        <section
+          id="s00"
+          class="grid grid-cols-[60px_140px_1fr] gap-6 border-t-0 pt-2 pb-11 max-[900px]:grid-cols-[50px_1fr] max-[900px]:gap-4"
+        >
+          <div class="text-[11px] tracking-wide text-muted">00</div>
+          <div class="max-[900px]:col-start-2">
+            <div class="text-[11px] font-bold tracking-wide text-ink">NOW</div>
+          </div>
+          <div class="max-[900px]:col-span-2">
+            <p
+              class="max-w-[640px] text-pretty text-[22px] leading-normal tracking-tight max-[900px]:text-lg"
+            >
+              Reading <em class="italic">The Design of Everyday Things</em>,
+              learning Rust on the side, and shooting a roll of Portra a month.
+              Open to design-engineering roles starting <span
+                class="bg-lime-soft px-1 text-ink">September 2026</span
+              >.
+            </p>
+          </div>
+        </section>
+
+        <section
+          id="s01"
+          class="grid grid-cols-[60px_140px_1fr] gap-6 border-t border-ink py-7 pb-11 max-[900px]:grid-cols-[50px_1fr] max-[900px]:gap-4"
+        >
+          <div class="text-[11px] tracking-wide text-muted">01</div>
+          <div class="max-[900px]:col-start-2">
+            <div class="text-[11px] font-bold tracking-wide text-ink">WORK</div>
+            <div class="mt-1 text-[11px] text-muted">{counts.work} ITEMS</div>
+          </div>
+          <div class="max-[900px]:col-span-2">
+            <TimelineRows rows={portfolio.work} />
+          </div>
+        </section>
+
+        <section
+          id="s02"
+          class="grid grid-cols-[60px_140px_1fr] gap-6 border-t border-ink py-7 pb-11 max-[900px]:grid-cols-[50px_1fr] max-[900px]:gap-4"
+        >
+          <div class="text-[11px] tracking-wide text-muted">02</div>
+          <div class="max-[900px]:col-start-2">
+            <div class="text-[11px] font-bold tracking-wide text-ink">
+              PROJECTS
+            </div>
+            <div class="mt-1 text-[11px] text-muted">
+              {counts.projects} ITEMS
+            </div>
+          </div>
+          <div class="max-[900px]:col-span-2">
+            <TimelineRows rows={portfolio.projects} />
+          </div>
+        </section>
+
+        <section
+          id="s03"
+          class="grid grid-cols-[60px_140px_1fr] gap-6 border-t border-ink py-7 pb-11 max-[900px]:grid-cols-[50px_1fr] max-[900px]:gap-4"
+        >
+          <div class="text-[11px] tracking-wide text-muted">03</div>
+          <div class="max-[900px]:col-start-2">
+            <div class="text-[11px] font-bold tracking-wide text-ink">
+              STACK
+            </div>
+            <div class="mt-1 text-[11px] text-muted">{counts.stack} ITEMS</div>
+          </div>
+          <div
+            class="grid grid-cols-2 gap-x-8 max-[900px]:col-span-2 max-[900px]:grid-cols-1"
+          >
+            {
+              portfolio.stack.map((item) => (
+                <div class="portfolio-row">
+                  <span class="tabular-nums text-xs text-muted">
+                    {item.lane}
+                  </span>
+                  <div>
+                    <div class="text-sm font-bold">{item.title}</div>
+                    <div class="mt-0.5 text-xs text-ink-secondary">
+                      {item.meta}
+                    </div>
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </section>
+
+        <section
+          id="s04"
+          class="grid grid-cols-[60px_140px_1fr] gap-6 border-t border-ink py-7 pb-11 max-[900px]:grid-cols-[50px_1fr] max-[900px]:gap-4"
+        >
+          <div class="text-[11px] tracking-wide text-muted">04</div>
+          <div class="max-[900px]:col-start-2">
+            <div class="text-[11px] font-bold tracking-wide text-ink">
+              OFF-SCREEN
+            </div>
+            <div class="mt-1 text-[11px] text-muted">
+              {counts.offScreen} ITEMS
+            </div>
+          </div>
+          <div class="max-[900px]:col-span-2">
+            <OffScreenRows rows={portfolio.offScreen} />
+          </div>
+        </section>
+
+        <section
+          id="s05"
+          class="grid grid-cols-[60px_140px_1fr] gap-6 border-t border-ink py-7 pb-11 max-[900px]:grid-cols-[50px_1fr] max-[900px]:gap-4"
+        >
+          <div class="text-[11px] tracking-wide text-muted">05</div>
+          <div class="max-[900px]:col-start-2">
+            <div class="text-[11px] font-bold tracking-wide text-ink">
+              CONTACT
+            </div>
+            <div class="mt-1 text-[11px] text-muted">
+              {counts.contact} ITEMS
+            </div>
+          </div>
+          <div
+            class="grid grid-cols-3 gap-4 max-[900px]:col-span-2 max-[900px]:grid-cols-1"
+          >
+            <ContactGrid entries={portfolio.contact} />
+          </div>
+        </section>
+
+        <div
+          class="flex flex-wrap justify-between gap-4 border-t border-ink py-6 text-[11px] tracking-wide text-muted max-[900px]:flex-col max-[900px]:items-start"
+        >
+          <span
+            >© <CopyrightYear client:load /> LG ·{" "}
+            <a
+              class="border-b border-transparent text-muted transition-[border-color,color] hover:border-line hover:text-ink"
+              href="/imprint">Impressum</a
+            ></span
+          >
+          <a
+            href="https://github.com/LukGer/portfolio"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>v3.0 · BUILT WITH ASTRO</span>
+          </a>
+          <span class="select-none"
+            >END OF FILE <span class="text-lime">◾</span></span
+          >
+        </div>
+      </main>
+    </div>
+  </div>
+</PortfolioLayout>

@@ -1,0 +1,97 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Space Mono", ui-monospace, monospace;
+
+  --color-bg: oklch(98.2% 0.0041 91.45);
+  --color-ink: oklch(18% 0.005 91.45);
+  --color-ink-secondary: oklch(35% 0.005 91.45);
+  --color-muted: oklch(60% 0.005 91.45);
+  --color-line: oklch(88% 0.004 91.45);
+  --color-lime: oklch(64.82% 0.1754 131.68);
+  --color-lime-soft: oklch(64.82% 0.1754 131.68 / 0.12);
+
+  --animate-pulse-status: pulse-status 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse-status {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+@font-face {
+  font-family: "Space Mono";
+  src: url("/fonts/SpaceMono-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Space Mono";
+  src: url("/fonts/SpaceMono-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Space Mono";
+  src: url("/fonts/SpaceMono-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@layer base {
+  ::selection {
+    background-color: var(--color-lime);
+    color: var(--color-ink);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+}
+
+@layer components {
+  .portfolio-row {
+    display: grid;
+    grid-template-columns: 90px 1fr auto;
+    gap: 16px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed var(--color-line);
+    align-items: baseline;
+    cursor: pointer;
+  }
+
+  .portfolio-row-tag {
+    font-size: 11px;
+    color: var(--color-muted);
+    letter-spacing: 0.08em;
+    transition: color 200ms ease;
+  }
+
+  .portfolio-row:hover .portfolio-row-tag {
+    color: var(--color-lime);
+  }
+
+  .portfolio-contact-link {
+    display: block;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid transparent;
+    transition: border-color 280ms ease;
+  }
+
+  .portfolio-contact-link:hover {
+    border-bottom-color: var(--color-ink);
+  }
+}

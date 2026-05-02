@@ -1,0 +1,34 @@
+---
+import PortfolioNavLink from "@/components/portfolio/PortfolioNavLink.astro";
+import { portfolio } from "@/data/portfolio";
+
+const pad = (len: number) => String(len).padStart(2, "0");
+
+const c = {
+  work: portfolio.work.length,
+  projects: portfolio.projects.length,
+  stack: portfolio.stack.length,
+  offScreen: portfolio.offScreen.length,
+};
+
+const links = [
+  { href: "#s00", label: "00 — Now", trailing: "→" },
+  { href: "#s01", label: "01 — Work", trailing: pad(c.work) },
+  { href: "#s02", label: "02 — Projects", trailing: pad(c.projects) },
+  { href: "#s03", label: "03 — Stack", trailing: pad(c.stack) },
+  { href: "#s04", label: "04 — Off-screen", trailing: pad(c.offScreen) },
+  { href: "#s05", label: "05 — Contact", trailing: "→" },
+] as const;
+---
+
+<nav class="mb-8 flex flex-col text-xs">
+  {
+    links.map((item) => (
+      <PortfolioNavLink
+        href={item.href}
+        label={item.label}
+        trailing={item.trailing}
+      />
+    ))
+  }
+</nav>

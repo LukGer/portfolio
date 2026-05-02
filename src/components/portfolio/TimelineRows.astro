@@ -1,0 +1,38 @@
+---
+import type { TimelineRow } from "@/data/portfolio";
+
+interface Props {
+	rows: TimelineRow[];
+}
+
+const { rows } = Astro.props;
+---
+
+{
+	rows.map((row) =>
+		row.href !== undefined ? (
+			<a
+				class="portfolio-row text-inherit no-underline"
+				href={row.href}
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<span class="tabular-nums text-xs text-muted">{row.year}</span>
+				<div>
+					<div class="text-sm font-bold">{row.title}</div>
+					<div class="mt-0.5 text-xs text-ink-secondary">{row.meta}</div>
+				</div>
+				{row.tag !== undefined ? <span class="portfolio-row-tag">{row.tag}</span> : null}
+			</a>
+		) : (
+			<div class="portfolio-row">
+				<span class="tabular-nums text-xs text-muted">{row.year}</span>
+				<div>
+					<div class="text-sm font-bold">{row.title}</div>
+					<div class="mt-0.5 text-xs text-ink-secondary">{row.meta}</div>
+				</div>
+				{row.tag !== undefined ? <span class="portfolio-row-tag">{row.tag}</span> : null}
+			</div>
+		),
+	)
+}

@@ -1,55 +1,134 @@
 ---
-import Layout from "@/layouts/Layout.astro";
+import PortfolioLayout from "@/layouts/PortfolioLayout.astro";
 ---
 
-<Layout title="Imprint - Lukas Gerhold">
-  <h4 class="pt-12">Impressum</h4><p>
-    <b
-      >Informationen und Offenlegung gemäß &sect;5 (1) ECG, &sect; 25 MedienG,
-      &sect; 63 GewO und &sect; 14 UGB</b
+<PortfolioLayout
+  title="Impressum — Lukas Gerhold"
+  description="Impressum und rechtliche Angaben."
+>
+  <div
+    class="mx-auto max-w-[1280px] px-16 pb-16 pt-14 max-[900px]:px-6 max-[900px]:pb-12 max-[900px]:pt-8"
+  >
+    <div
+      class="grid grid-cols-[300px_1fr] gap-14 max-[900px]:grid-cols-1 max-[900px]:gap-8"
     >
-  </p>
-  <p><b>Webseitenbetreiber:</b> Lukas Gerhold</p>
-  <p><b>Anschrift:</b> Dürrnbergerstraße 5, 4020 Linz</p>
-  <p>
-    <b>Kontaktdaten:</b>
-    <br /> Email: lukger1999@gmail.com
-  </p>
+      <aside
+        class="sticky top-14 self-start max-[900px]:relative max-[900px]:top-0"
+      >
+        <div class="mb-6 text-[11px] tracking-[0.1em] text-muted">
+          LEGAL ⸺ AT
+        </div>
+        <h1 class="mb-4 text-5xl font-bold leading-snug tracking-tight">
+          Impressum<span class="text-lime">.</span>
+        </h1>
+        <p
+          class="mb-8 text-[13px] leading-relaxed text-pretty text-ink-secondary"
+        >
+          Pflichtangaben für diese Website.
+        </p>
+        <a
+          class="mt-2 inline-block border-b border-lime pb-0.5 text-xs text-lime no-underline transition-opacity hover:opacity-80"
+          href="/">← INDEX</a
+        >
+      </aside>
 
-  <p>
-    <b>Anwendbare Rechtsvorschrift:</b> www.ris.bka.gv.at
-  </p>
-  <p>
-    <b>Online Streitbeilegung:</b> Verbraucher, welche in Österreich oder in einem
-    sonstigen Vertragsstaat der ODR-VO niedergelassen sind, haben die Möglichkeit
-    Probleme bezüglich dem entgeltlichen Kauf von Waren oder Dienstleistungen im
-    Rahmen einer Online-Streitbeilegung (nach OS, AStG) zu lösen. Die Europäische
-    Kommission stellt eine Plattform hierfür bereit: https://ec.europa.eu/consumers/odr
-  </p>
-  <p>
-    <b>Urheberrecht:</b> Die Inhalte dieser Webseite unterliegen, soweit dies rechtlich
-    möglich ist, diversen Schutzrechten (z.B dem Urheberrecht). Jegliche Verwendung/Verbreitung
-    von bereitgestelltem Material, welche urheberrechtlich untersagt ist, bedarf
-    schriftlicher Zustimmung des Webseitenbetreibers.
-  </p><p>
-    <b>Haftungsausschluss:</b> Trotz sorgfältiger inhaltlicher Kontrolle übernimmt
-    der Webseitenbetreiber dieser Webseite keine Haftung für die Inhalte externer
-    Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber
-    verantwortlich. Sollten Sie dennoch auf ausgehende Links aufmerksam werden, welche
-    auf eine Webseite mit rechtswidriger Tätigkeit/Information verweisen, ersuchen
-    wir um dementsprechenden Hinweis, um diese nach § 17 Abs. 2 ECG umgehend zu entfernen.<br
-    />Die Urheberrechte Dritter werden vom Betreiber dieser Webseite mit größter
-    Sorgfalt beachtet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung
-    aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei
-    Bekanntwerden derartiger Rechtsverletzungen werden wir den betroffenen
-    Inhalt umgehend entfernen.
-  </p>
-  <p>
-    Quelle: <b
-      ><a
-        href="https://www.fairesrecht.at/kostenlos-impressum-erstellen-generator.php"
-        >Impressum Generator Österreich</a
-      ></b
+      <main
+        class="border-t-0 pt-2 prose prose-sm max-w-[640px] prose-neutral text-ink prose-p:text-[13px] prose-p:leading-relaxed prose-p:text-ink-secondary prose-headings:scroll-mt-24 prose-headings:font-bold prose-headings:uppercase prose-headings:tracking-wide prose-headings:text-ink prose-h2:mt-10 prose-h2:mb-0 prose-h2:text-[11px] prose-h2:font-bold prose-strong:font-bold prose-strong:text-ink prose-a:border-b prose-a:border-lime prose-a:text-lime prose-a:no-underline prose-a:font-normal prose-a:transition-opacity hover:prose-a:opacity-80"
+      >
+        <p>
+          <strong
+            >Informationen und Offenlegung gemäß §&nbsp;5 (1) ECG, §&nbsp;25
+            MedienG, §&nbsp;63 GewO und §&nbsp;14 UGB</strong
+          >
+        </p>
+
+        <h2>Webseitenbetreiber</h2>
+        <p>Lukas Gerhold</p>
+
+        <h2>Anschrift</h2>
+        <p>Dürrnbergerstraße 5, 4020 Linz</p>
+
+        <h2>Kontaktdaten</h2>
+        <p>
+          E-Mail:{" "}
+          <a href="mailto:lukger1999@gmail.com">lukger1999@gmail.com</a>
+        </p>
+
+        <h2>Anwendbare Rechtsvorschrift</h2>
+        <p>
+          <a
+            href="https://www.ris.bka.gv.at"
+            target="_blank"
+            rel="noopener noreferrer">www.ris.bka.gv.at</a
+          >
+        </p>
+
+        <h2>Online-Streitbeilegung</h2>
+        <p>
+          Verbraucher, welche in Österreich oder in einem sonstigen
+          Vertragsstaat der ODR-VO niedergelassen sind, haben die Möglichkeit,
+          Probleme bezüglich dem entgeltlichen Kauf von Waren oder
+          Dienstleistungen im Rahmen einer Online-Streitbeilegung (nach OS,
+          AStG) zu lösen. Die Europäische Kommission stellt eine Plattform
+          hierfür bereit:{" "}
+          <a
+            href="https://ec.europa.eu/consumers/odr"
+            target="_blank"
+            rel="noopener noreferrer">ec.europa.eu/consumers/odr</a
+          >
+        </p>
+
+        <h2>Urheberrecht</h2>
+        <p>
+          Die Inhalte dieser Webseite unterliegen, soweit dies rechtlich möglich
+          ist, diversen Schutzrechten (z.&nbsp;B. dem Urheberrecht). Jegliche
+          Verwendung oder Verbreitung von bereitgestelltem Material, welche
+          urheberrechtlich untersagt ist, bedarf schriftlicher Zustimmung des
+          Webseitenbetreibers.
+        </p>
+
+        <h2>Haftungsausschluss</h2>
+        <p>
+          Trotz sorgfältiger inhaltlicher Kontrolle übernimmt der
+          Webseitenbetreiber dieser Webseite keine Haftung für die Inhalte
+          externer Links. Für den Inhalt der verlinkten Seiten sind
+          ausschließlich deren Betreiber verantwortlich. Sollten Sie dennoch auf
+          ausgehende Links aufmerksam werden, welche auf eine Webseite mit
+          rechtswidriger Tätigkeit oder Information verweisen, ersuchen wir um
+          einen entsprechenden Hinweis, um diese nach §&nbsp;17 Abs.&nbsp;2 ECG
+          umgehend zu entfernen.
+        </p>
+        <p>
+          Die Urheberrechte Dritter werden vom Betreiber dieser Webseite mit
+          größter Sorgfalt beachtet. Sollten Sie trotzdem auf eine
+          Urheberrechtsverletzung aufmerksam werden, bitten wir um einen
+          entsprechenden Hinweis. Bei Bekanntwerden derartiger
+          Rechtsverletzungen werden wir den betroffenen Inhalt umgehend
+          entfernen.
+        </p>
+
+        <div class="not-prose mt-10 text-[11px] text-muted">
+          Quelle:{" "}
+          <a
+            class="border-b border-lime text-lime no-underline transition-opacity hover:opacity-80"
+            href="https://www.fairesrecht.at/kostenlos-impressum-erstellen-generator.php"
+            target="_blank"
+            rel="noopener noreferrer">Impressum-Generator Österreich</a
+          >
+        </div>
+      </main>
+    </div>
+
+    <div
+      class="mt-16 flex flex-wrap justify-between gap-4 border-t border-ink py-6 text-[11px] tracking-wide text-muted max-[900px]:flex-col max-[900px]:items-start"
     >
-  </p>
-</Layout>
+      <a
+        class="border-b border-transparent text-muted transition-[border-color,color] hover:border-line hover:text-ink"
+        href="/">← INDEX</a
+      >
+      <span class="select-none"
+        >END OF FILE <span class="text-lime">◾</span></span
+      >
+    </div>
+  </div>
+</PortfolioLayout>

@@ -1,0 +1,125 @@
+{
+  "work": [
+    {
+      "year": "2025—",
+      "title": "RideAmigos",
+      "meta": "Fullstack Engineer · AI & Transport Management",
+      "tag": "JOB"
+    },
+    {
+      "year": "2023—",
+      "title": "FH Upper Austria",
+      "meta": "Design of Digital Products · BSc",
+      "href": "https://fh-ooe.at/studienangebot/design-of-digital-products-bachelor",
+      "tag": "OPEN ↗"
+    },
+    {
+      "year": "2020—24",
+      "title": "Hofer KG",
+      "meta": "Fullstack Engineer · TS / .NET / SQL",
+      "tag": "JOB"
+    },
+    {
+      "year": "2014—19",
+      "title": "HTL Neufelden",
+      "meta": "Business & Information Technology",
+      "href": "https://www.htl-neufelden.at/ausbildung/betriebsinformatik/",
+      "tag": "OPEN ↗"
+    }
+  ],
+  "projects": [
+    {
+      "year": "2025",
+      "title": "Aperture",
+      "meta": "Photography portfolio with custom CMS",
+      "href": "#",
+      "tag": "OPEN ↗"
+    },
+    {
+      "year": "2024",
+      "title": "Kollektiv",
+      "meta": "Social planning iOS app · SwiftUI + Supabase",
+      "href": "#",
+      "tag": "OPEN ↗"
+    },
+    {
+      "year": "2024",
+      "title": "Brutbox",
+      "meta": "Type specimen + retail microsite",
+      "href": "#",
+      "tag": "OPEN ↗"
+    },
+    {
+      "year": "2023",
+      "title": "Riemann Sums",
+      "meta": "Calculus visualizer in WebGL",
+      "href": "#",
+      "tag": "OPEN ↗"
+    }
+  ],
+  "stack": [
+    {
+      "lane": "FE",
+      "title": "TypeScript / React",
+      "meta": "5y · daily driver"
+    },
+    {
+      "lane": "FE",
+      "title": "Astro / Next.js",
+      "meta": "Marketing & content sites"
+    },
+    {
+      "lane": "BE",
+      "title": ".NET / C#",
+      "meta": "Services at Hofer"
+    },
+    {
+      "lane": "BE",
+      "title": "Postgres / SQL",
+      "meta": "Schema & query design"
+    },
+    {
+      "lane": "DSGN",
+      "title": "Figma / Motion",
+      "meta": "Product design · prototyping"
+    }
+  ],
+  "offScreen": [
+    {
+      "cadence": "DAILY",
+      "title": "Photography",
+      "meta": "35mm · Fujifilm X100V",
+      "href": "https://photos.lukger.dev",
+      "tag": "OPEN ↗"
+    },
+    {
+      "cadence": "WEEKLY",
+      "title": "Cycling",
+      "meta": "Mostly road, some gravel"
+    },
+    {
+      "cadence": "MORNING",
+      "title": "Coffee",
+      "meta": "V60 · anaerobic Ethiopian"
+    }
+  ],
+  "contact": [
+    {
+      "kind": "email",
+      "label": "EMAIL",
+      "email": "lukger1999@gmail.com"
+    },
+    {
+      "kind": "link",
+      "label": "GITHUB",
+      "line": "github / LukGer",
+      "href": "https://github.com/LukGer"
+    },
+    {
+      "kind": "link",
+      "label": "LINKEDIN",
+      "line": "in / lukas-gerhold",
+      "href": "https://www.linkedin.com/in/lukas-gerhold-57a364183/"
+    }
+  ]
+}

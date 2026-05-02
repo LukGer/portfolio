@@ -1,0 +1,21 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  trailing: string;
+}
+
+const { href, label, trailing } = Astro.props;
+---
+
+<a
+  class="group flex justify-between py-[5px] text-ink-secondary transition-colors duration-200 hover:text-ink"
+  href={href}
+>
+  <span>{label}</span>
+  <span
+    class="tabular-nums text-muted transition-colors duration-200 group-hover:text-lime motion-reduce:group-hover:text-muted"
+  >
+    {trailing}
+  </span>
+</a>
