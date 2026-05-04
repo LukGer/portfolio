@@ -1,5 +1,4 @@
 ---
-import { ScrambleEmailLink } from "@/components/portfolio/ScrambleEmailLink.tsx";
 import type { ContactEntry } from "@/data/portfolio";
 
 interface Props {
@@ -10,21 +9,19 @@ const { entries } = Astro.props;
 ---
 
 {
-  entries.map((entry) =>
-    entry.kind === "email" ? (
-      <ScrambleEmailLink client:load email={entry.email} label={entry.label} />
-    ) : (
-      <a
-        class="portfolio-contact-link text-inherit no-underline"
-        href={entry.href}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <div class="mb-1 text-[11px] tracking-wide text-muted">
-          {entry.label}
-        </div>
-        <div class="text-sm font-bold">{entry.line}</div>
-      </a>
-    ),
-  )
+  entries.map((entry) => (
+    <a
+      class="portfolio-contact-link text-inherit no-underline"
+      href={entry.kind === "email" ? `mailto:${entry.email}` : entry.href}
+      target={entry.kind === "link" ? "_blank" : undefined}
+      rel={entry.kind === "link" ? "noopener noreferrer" : undefined}
+    >
+      <div class="mb-1 text-[11px] tracking-wide text-muted">
+        {entry.label}
+      </div>
+      <div class="text-sm font-bold">
+        {entry.kind === "email" ? entry.email : entry.line}
+      </div>
+    </a>
+  ))
 }

@@ -4,7 +4,8 @@
       "year": "2025—",
       "title": "RideAmigos",
       "meta": "Fullstack Engineer · AI & Transport Management",
-      "tag": "JOB"
+      "tag": "JOB",
+      "href": "https://rideamigos.com"
     },
     {
       "year": "2023—",
@@ -17,7 +18,8 @@
       "year": "2020—24",
       "title": "Hofer KG",
       "meta": "Fullstack Engineer · TS / .NET / SQL",
-      "tag": "JOB"
+      "tag": "JOB",
+      "href": "https://karriere.hofer.at/"
     },
     {
       "year": "2014—19",
@@ -29,31 +31,10 @@
   ],
   "projects": [
     {
-      "year": "2025",
-      "title": "Aperture",
-      "meta": "Photography portfolio with custom CMS",
-      "href": "#",
-      "tag": "OPEN ↗"
-    },
-    {
-      "year": "2024",
-      "title": "Kollektiv",
-      "meta": "Social planning iOS app · SwiftUI + Supabase",
-      "href": "#",
-      "tag": "OPEN ↗"
-    },
-    {
-      "year": "2024",
-      "title": "Brutbox",
-      "meta": "Type specimen + retail microsite",
-      "href": "#",
-      "tag": "OPEN ↗"
-    },
-    {
-      "year": "2023",
-      "title": "Riemann Sums",
-      "meta": "Calculus visualizer in WebGL",
-      "href": "#",
+      "year": "2026",
+      "title": "The Gallery",
+      "meta": "Photography portfolio · Astro",
+      "href": "https://photos.lukger.dev",
       "tag": "OPEN ↗"
     }
   ],
@@ -61,22 +42,20 @@
     {
       "lane": "FE",
       "title": "TypeScript / React",
-      "meta": "5y · daily driver"
+      "meta": "Tanstack Start · Next.js · RN"
     },
     {
       "lane": "FE",
-      "title": "Astro / Next.js",
+      "title": "Astro",
       "meta": "Marketing & content sites"
     },
     {
       "lane": "BE",
-      "title": ".NET / C#",
-      "meta": "Services at Hofer"
+      "title": "TypeScript / Node.js"
     },
     {
       "lane": "BE",
-      "title": "Postgres / SQL",
-      "meta": "Schema & query design"
+      "title": ".NET / C#"
     },
     {
       "lane": "DSGN",
@@ -94,13 +73,13 @@
     },
     {
       "cadence": "WEEKLY",
-      "title": "Cycling",
-      "meta": "Mostly road, some gravel"
+      "title": "Climbing",
+      "meta": "Sport & bouldering"
     },
     {
       "cadence": "MORNING",
       "title": "Coffee",
-      "meta": "V60 · anaerobic Ethiopian"
+      "meta": "Saving up for a La Marzocco"
     }
   ],
   "contact": [
