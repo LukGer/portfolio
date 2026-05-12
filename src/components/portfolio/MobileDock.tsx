@@ -45,11 +45,18 @@ export function MobileDock() {
 	useEffect(() => {
 		const sections = CHIPS.map((c) => document.getElementById(c.id));
 		const onScroll = () => {
-			const trigger = window.innerHeight * 0.32;
+			const atBottom =
+				window.innerHeight + window.scrollY >=
+				document.documentElement.scrollHeight - 2;
 			let next = 0;
-			for (let i = 0; i < sections.length; i++) {
-				const s = sections[i];
-				if (s && s.getBoundingClientRect().top <= trigger) next = i;
+			if (atBottom) {
+				next = sections.length - 1;
+			} else {
+				const trigger = window.innerHeight * 0.32;
+				for (let i = 0; i < sections.length; i++) {
+					const s = sections[i];
+					if (s && s.getBoundingClientRect().top <= trigger) next = i;
+				}
 			}
 			setActiveIndex((curr) => (curr === next ? curr : next));
 		};
@@ -72,13 +79,13 @@ export function MobileDock() {
 	const clipPath = `inset(${PAD}px ${insetRight}px ${PAD}px ${insetLeft}px round ${RADIUS}px)`;
 
 	const chipBase =
-		"inline-flex min-w-0 flex-1 items-baseline justify-center gap-1.5 rounded-[10px] border-0 bg-transparent px-2 py-2.5 font-sans text-[11px] tracking-[0.02em] whitespace-nowrap";
+		"inline-flex shrink-0 items-baseline justify-center gap-1.5 rounded-[10px] border-0 bg-transparent px-2.5 py-2.5 font-sans text-[11px] tracking-[0.02em] whitespace-nowrap";
 
 	return (
 		<div className="pointer-events-none fixed inset-x-3 bottom-4 z-40 hidden justify-center max-[900px]:flex">
 			<div
 				ref={dockRef}
-				className="pointer-events-auto relative flex w-full max-w-[456px] gap-1 overflow-hidden rounded-2xl bg-ink/90 p-1.5 shadow-[0_14px_32px_-8px_rgba(0,0,0,0.35),0_2px_6px_rgba(0,0,0,0.2)] backdrop-blur-lg"
+				className="pointer-events-auto relative flex w-full max-w-[456px] justify-between gap-1 overflow-hidden rounded-2xl bg-ink/90 p-1.5 backdrop-blur-lg"
 			>
 				{rect && (
 					<motion.div
@@ -109,7 +116,7 @@ export function MobileDock() {
 				{rect && (
 					<motion.div
 						aria-hidden
-						className="pointer-events-none absolute inset-0 flex gap-1 p-1.5"
+						className="pointer-events-none absolute inset-0 flex justify-between gap-1 p-1.5"
 						initial={false}
 						animate={{ clipPath }}
 						transition={SPRING}
