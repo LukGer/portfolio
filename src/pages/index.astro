@@ -4,6 +4,8 @@ import ContactGrid from "@/components/portfolio/ContactGrid.astro";
 import { CopyrightYear } from "@/components/portfolio/CopyrightYear.tsx";
 import { GlobalPortfolioEffects } from "@/components/portfolio/GlobalPortfolioEffects.tsx";
 import { LinzWeather } from "@/components/portfolio/LinzWeather";
+import { MobileDock } from "@/components/portfolio/MobileDock";
+import MobileTopBar from "@/components/portfolio/MobileTopBar.astro";
 import OffScreenRows from "@/components/portfolio/OffScreenRows.astro";
 import PortfolioNav from "@/components/portfolio/PortfolioNav.astro";
 import TimelineRows from "@/components/portfolio/TimelineRows.astro";
@@ -22,8 +24,9 @@ const counts = {
 
 <PortfolioLayout>
   <GlobalPortfolioEffects client:load />
+  <MobileTopBar />
   <div
-    class="mx-auto max-w-[1280px] px-16 pb-16 pt-14 max-[900px]:px-6 max-[900px]:pb-12 max-[900px]:pt-8"
+    class="mx-auto max-w-[1280px] px-16 pb-16 pt-14 max-[900px]:px-6 max-[900px]:pt-6 max-[900px]:pb-32"
   >
     <div
       class="grid grid-cols-[300px_1fr] gap-14 max-[900px]:grid-cols-1 max-[900px]:gap-8"
@@ -34,7 +37,9 @@ const counts = {
         <div class="mb-6 text-[11px] tracking-widest text-muted">
           INDEX ⸺ LG
         </div>
-        <h1 class="mb-4 text-5xl font-bold leading-snug tracking-tight">
+        <h1
+          class="mb-4 text-5xl font-bold leading-snug tracking-tight max-[900px]:mb-5 max-[900px]:text-[32px] max-[900px]:leading-[1.05] max-[900px]:tracking-[-0.03em]"
+        >
           Lukas Gerhold<span class="text-lime">.</span>
         </h1>
         <p
@@ -51,10 +56,12 @@ const counts = {
           >.
         </p>
 
-        <PortfolioNav />
+        <div class="max-[900px]:hidden">
+          <PortfolioNav />
+        </div>
 
         <div
-          class="border-t border-line pt-4 text-[11px] leading-relaxed text-muted"
+          class="border-t border-line pt-4 text-[11px] leading-relaxed text-muted max-[900px]:hidden"
         >
           <div class="flex justify-between">
             <span>LINZ, AT</span>
@@ -214,4 +221,5 @@ const counts = {
       </main>
     </div>
   </div>
+  <MobileDock client:load />
 </PortfolioLayout>
